@@ -69,7 +69,8 @@
             android:layout_alignTop="@id/mainImageView1"
             android:layout_alignBottom="@id/mainImageView1"
             android:textColor="#FFFFFF"
-            android:hint="填写你的昵称" />
+            android:textColorHint="#FFFFFF"
+            android:hint="@string/enter_user_name" />
 
         <View
             android:layout_height="1dp"
@@ -90,7 +91,8 @@
             android:layout_alignTop="@id/mainImageView2"
             android:layout_alignBottom="@id/mainImageView2"
             android:textColor="#FFFFFF"
-            android:hint="填入你的密码" />
+            android:textColorHint="#FFFFFF"
+            android:hint="@string/enter_pass" />
 
         <View
             android:layout_height="1dp"
@@ -110,7 +112,7 @@
             android:layout_alignTop="@id/mainImageView3"
             android:layout_alignBottom="@id/mainImageView3"
             android:textColor="#FFFFFF"
-            android:hint="填入密钥"
+            android:hint="@string/enter_key"
             android:textColorHint="#FF4133"/>
 
         <View

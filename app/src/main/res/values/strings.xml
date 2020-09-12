@@ -135,4 +135,8 @@
     <string name="menu_home">Home</string>
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
+    <string name="enter_key">填入密钥</string>
+    <string name="enter_pass">填入你的密码</string>
+    <string name="enter_user_name">填写你的昵称</string>
+    <string name="user_profile_default">这个人很懒，啥也没留下~</string>
 </resources>

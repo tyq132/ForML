@@ -326,7 +326,6 @@ public class LoginActivity extends AppCompatActivity {
                             .setTitle("成功注册啦！")
                             .setIcon(R.drawable.tip_success)
                             .setBackgroundColor(R.color.color_primary_men)
-                            .setMessage("点击-->进入APP~").setMessageColor(R.color.red_btn_bg_color)
                             .setDuration(4000)
                             .setLayoutGravity(Gravity.BOTTOM)
                             .setActionWithIcon(R.drawable.next_step, new OnActionClickListener() {

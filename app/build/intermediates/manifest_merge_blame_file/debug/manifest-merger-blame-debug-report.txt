@@ -24,7 +24,7 @@
 14-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:9:22-77
 15
 16    <application
-16-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:11:5-33:19
+16-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:11:5-35:19
 17        android:allowBackup="true"
 17-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:12:9-35
 18        android:appComponentFactory="android.support.v4.app.CoreComponentFactory"
@@ -40,45 +40,50 @@
 23-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:16:9-42
 24        android:supportsRtl="true"
 24-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:17:9-35
-25        android:theme="@style/AppTheme" >
-25-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:18:9-40
-26        <activity
-26-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:21:9-29:20
-27            android:name="ai.love.activity.WelcomeActivity"
-27-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:22:13-53
-28            android:configChanges="orientation|keyboardHidden|screenSize" >
-28-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:23:13-74
-29            <intent-filter>
-29-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:24:13-28:29
-30                <action android:name="android.intent.action.MAIN" />
-30-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:25:17-69
-30-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:25:25-66
-31
-32                <category android:name="android.intent.category.LAUNCHER" />
-32-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:27:17-77
-32-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:27:27-74
-33            </intent-filter>
-34        </activity>
-35        <activity android:name="ai.love.activity.DoneActivity" />
-35-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:30:9-59
-35-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:30:19-56
-36        <activity android:name="ai.love.LoginActivity" />
-36-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:31:9-51
-36-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:31:19-48
-37        <activity android:name="ai.love.MainActivity" />
-37-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:32:9-50
-37-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:32:19-47
-38
-39        <provider
-39-->[android.arch.lifecycle:extensions:1.1.1] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\280574ab331d6899a7e8badab855b8e7\extensions-1.1.1\AndroidManifest.xml:23:9-27:43
-40            android:name="android.arch.lifecycle.ProcessLifecycleOwnerInitializer"
-40-->[android.arch.lifecycle:extensions:1.1.1] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\280574ab331d6899a7e8badab855b8e7\extensions-1.1.1\AndroidManifest.xml:24:13-83
-41            android:authorities="ml.application.lifecycle-trojan"
-41-->[android.arch.lifecycle:extensions:1.1.1] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\280574ab331d6899a7e8badab855b8e7\extensions-1.1.1\AndroidManifest.xml:25:13-68
-42            android:exported="false"
-42-->[android.arch.lifecycle:extensions:1.1.1] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\280574ab331d6899a7e8badab855b8e7\extensions-1.1.1\AndroidManifest.xml:26:13-37
-43            android:multiprocess="true" />
-43-->[android.arch.lifecycle:extensions:1.1.1] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\280574ab331d6899a7e8badab855b8e7\extensions-1.1.1\AndroidManifest.xml:27:13-40
-44    </application>
-45
-46</manifest>
+25        android:testOnly="true"
+26        android:theme="@style/AppTheme" >
+26-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:18:9-40
+27        <activity
+27-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:20:9-28:20
+28            android:name="ai.love.activity.WelcomeActivity"
+28-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:21:13-53
+29            android:configChanges="orientation|keyboardHidden|screenSize" >
+29-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:22:13-74
+30            <intent-filter>
+30-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:23:13-27:29
+31                <action android:name="android.intent.action.MAIN" />
+31-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:24:17-69
+31-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:24:25-66
+32
+33                <category android:name="android.intent.category.LAUNCHER" />
+33-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:26:17-77
+33-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:26:27-74
+34            </intent-filter>
+35        </activity>
+36        <activity android:name="ai.love.activity.DoneActivity" />
+36-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:29:9-59
+36-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:29:19-56
+37        <activity android:name="ai.love.LoginActivity" />
+37-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:30:9-51
+37-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:30:19-48
+38        <activity
+38-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:31:9-34:20
+39            android:name="ai.love.MainActivity"
+39-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:31:19-47
+40            android:theme="@style/Theme.Design.Light.NoActionBar" >
+40-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:32:13-66
+41        </activity>
+42
+43        <provider
+43-->[android.arch.lifecycle:extensions:1.1.1] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\280574ab331d6899a7e8badab855b8e7\extensions-1.1.1\AndroidManifest.xml:23:9-27:43
+44            android:name="android.arch.lifecycle.ProcessLifecycleOwnerInitializer"
+44-->[android.arch.lifecycle:extensions:1.1.1] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\280574ab331d6899a7e8badab855b8e7\extensions-1.1.1\AndroidManifest.xml:24:13-83
+45            android:authorities="ml.application.lifecycle-trojan"
+45-->[android.arch.lifecycle:extensions:1.1.1] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\280574ab331d6899a7e8badab855b8e7\extensions-1.1.1\AndroidManifest.xml:25:13-68
+46            android:exported="false"
+46-->[android.arch.lifecycle:extensions:1.1.1] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\280574ab331d6899a7e8badab855b8e7\extensions-1.1.1\AndroidManifest.xml:26:13-37
+47            android:multiprocess="true" />
+47-->[android.arch.lifecycle:extensions:1.1.1] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\280574ab331d6899a7e8badab855b8e7\extensions-1.1.1\AndroidManifest.xml:27:13-40
+48    </application>
+49
+50</manifest>

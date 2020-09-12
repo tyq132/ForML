@@ -15,12 +15,8 @@ anim design_bottom_sheet_slide_in
 anim design_bottom_sheet_slide_out
 anim design_snackbar_in
 anim design_snackbar_out
-anim error_frame_in
-anim error_x_in
 anim interpolator_slight_anticipate
 anim interpolator_slight_overshoot
-anim modal_in
-anim modal_out
 anim nav_default_enter_anim
 anim nav_default_exit_anim
 anim nav_default_pop_enter_anim
@@ -29,8 +25,6 @@ anim slide_in_from_bottom
 anim slide_in_from_top
 anim slide_out_to_bottom
 anim slide_out_to_top
-anim success_bow_roate
-anim success_mask_layout
 animator design_appbar_state_list_animator
 animator design_fab_hide_motion_spec
 animator design_fab_show_motion_spec
@@ -106,10 +100,7 @@ attr backgroundSplit
 attr backgroundStacked
 attr backgroundTint
 attr backgroundTintMode
-attr barColor
 attr barLength
-attr barSpinCycleTime
-attr barWidth
 attr barrierAllowsGoneWidgets
 attr barrierDirection
 attr barrierMargin
@@ -379,7 +370,6 @@ attr fastScrollHorizontalThumbDrawable
 attr fastScrollHorizontalTrackDrawable
 attr fastScrollVerticalThumbDrawable
 attr fastScrollVerticalTrackDrawable
-attr fillRadius
 attr firstBaselineToTopHeight
 attr floatingActionButtonStyle
 attr flow_firstHorizontalBias
@@ -415,7 +405,6 @@ attr fontWeight
 attr foregroundInsidePadding
 attr framePosition
 attr freezesAnimation
-attr fromDeg
 attr gapBetweenBars
 attr gif
 attr gifSource
@@ -631,8 +620,6 @@ attr percentX
 attr percentY
 attr perpendicularPath_percent
 attr pivotAnchor
-attr pivotX
-attr pivotY
 attr placeholder_emptyVisibility
 attr popEnterAnim
 attr popExitAnim
@@ -645,7 +632,6 @@ attr preserveIconSpacing
 attr pressedTranslationZ
 attr progressBarPadding
 attr progressBarStyle
-attr progressIndeterminate
 attr queryBackground
 attr queryHint
 attr radioButtonStyle
@@ -657,10 +643,7 @@ attr region_heightMoreThan
 attr region_widthLessThan
 attr region_widthMoreThan
 attr reverseLayout
-attr rimColor
-attr rimWidth
 attr rippleColor
-attr rollType
 attr round
 attr roundPercent
 attr saturation
@@ -689,7 +672,6 @@ attr snackbarButtonStyle
 attr snackbarStyle
 attr spanCount
 attr spinBars
-attr spinSpeed
 attr spinnerDropDownItemStyle
 attr spinnerStyle
 attr splitTrack
@@ -801,7 +783,6 @@ attr titleTextAppearance
 attr titleTextColor
 attr titleTextSize
 attr titleTextStyle
-attr toDeg
 attr toolbarId
 attr toolbarNavigationButtonStyle
 attr toolbarStyle
@@ -893,8 +874,6 @@ color background_floating_material_light
 color background_material_dark
 color background_material_light
 color black_overlay
-color blue_btn_bg_color
-color blue_btn_bg_pressed_color
 color bright_foreground_disabled_material_dark
 color bright_foreground_disabled_material_light
 color bright_foreground_inverse_material_dark
@@ -903,7 +882,6 @@ color bright_foreground_material_dark
 color bright_foreground_material_light
 color button_material_dark
 color button_material_light
-color button_text_color
 color cardview_dark_background
 color cardview_light_background
 color cardview_shadow_end_color
@@ -958,23 +936,14 @@ color dim_foreground_material_dark
 color dim_foreground_material_light
 color error_color_material_dark
 color error_color_material_light
-color error_stroke_color
-color float_transparent
 color foreground_material_dark
 color foreground_material_light
-color gray_btn_bg_color
-color gray_btn_bg_pressed_color
 color highlighted_text_material_dark
 color highlighted_text_material_light
-color material_blue_grey_80
 color material_blue_grey_800
-color material_blue_grey_90
 color material_blue_grey_900
-color material_blue_grey_95
 color material_blue_grey_950
-color material_deep_teal_20
 color material_deep_teal_200
-color material_deep_teal_50
 color material_deep_teal_500
 color material_grey_100
 color material_grey_300
@@ -1020,16 +989,12 @@ color primary_text_default_material_dark
 color primary_text_default_material_light
 color primary_text_disabled_material_dark
 color primary_text_disabled_material_light
-color red_btn_bg_color
-color red_btn_bg_pressed_color
 color ripple_material_dark
 color ripple_material_light
 color secondary_text_default_material_dark
 color secondary_text_default_material_light
 color secondary_text_disabled_material_dark
 color secondary_text_disabled_material_light
-color success_stroke_color
-color sweet_dialog_bg_color
 color switch_thumb_disabled_material_dark
 color switch_thumb_disabled_material_light
 color switch_thumb_material_dark
@@ -1040,8 +1005,6 @@ color text_color
 color title
 color tooltip_background_dark
 color tooltip_background_light
-color trans_success_stroke_color
-color warning_stroke_color
 dimen abc_action_bar_content_inset_material
 dimen abc_action_bar_content_inset_with_nav
 dimen abc_action_bar_default_height_material
@@ -1119,12 +1082,10 @@ dimen abc_text_size_title_material
 dimen abc_text_size_title_material_toolbar
 dimen activity_horizontal_margin
 dimen activity_vertical_margin
-dimen alert_width
 dimen app_bar_height
 dimen cardview_compat_inset_shadow
 dimen cardview_default_elevation
 dimen cardview_default_radius
-dimen common_circle_width
 dimen compat_button_inset_horizontal_material
 dimen compat_button_inset_vertical_material
 dimen compat_button_padding_horizontal_material
@@ -1302,7 +1263,6 @@ dimen notification_top_pad
 dimen notification_top_pad_large_text
 dimen picture_padding
 dimen picture_translate_distance
-dimen progress_circle_radius
 dimen subtitle_corner_radius
 dimen subtitle_outline_width
 dimen subtitle_shadow_offset
@@ -1406,7 +1366,6 @@ drawable avd_show_password
 drawable bat
 drawable bear
 drawable bee
-drawable blue_button_background
 drawable bottle
 drawable butterfly
 drawable button_login
@@ -1422,17 +1381,14 @@ drawable design_ic_visibility
 drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
-drawable dialog_background
 drawable dolphin
 drawable done
 drawable eagle
 drawable elephant
-drawable error_center_x
-drawable error_circle
 drawable fail_icon
 drawable friends
-drawable gray_button_background
 drawable haimian_baby
+drawable head_ic
 drawable home
 drawable horse
 drawable ic_backpack
@@ -1460,6 +1416,7 @@ drawable list_0001
 drawable list_0002
 drawable login_bg
 drawable login_logo
+drawable menu_right
 drawable mtrl_snackbar_background
 drawable mtrl_tabs_default_indicator
 drawable myapp_icon
@@ -1479,7 +1436,6 @@ drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
 drawable ocean_star
 drawable owl
-drawable paper_plane
 drawable password_icon
 drawable pattern_bg_blue
 drawable pattern_bg_orange
@@ -1490,7 +1446,6 @@ drawable piece_dot
 drawable pig
 drawable question_bg
 drawable rat
-drawable red_button_background
 drawable register_logo
 drawable sample_logo
 drawable seal
@@ -1521,17 +1476,14 @@ drawable ship
 drawable side_nav_bar
 drawable snake
 drawable squirrel
-drawable success_bow
-drawable success_circle
 drawable success_icon
 drawable tip_fail
 drawable tip_success
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
 drawable user_icon
+drawable user_info
 drawable wallet
-drawable warning_circle
-drawable warning_sigh
 drawable wave_bg
 drawable wave_bottom
 drawable welcome_background
@@ -1667,7 +1619,6 @@ id button_login
 id button_register
 id calendarView
 id cancel_action
-id cancel_button
 id center
 id center_horizontal
 id center_vertical
@@ -1678,17 +1629,14 @@ id chronometer
 id clip_horizontal
 id clip_vertical
 id collapseActionView
-id confirm_button
 id container
 id content
 id contentPanel
-id content_text
 id cookie
 id coordinator
 id cos
 id custom
 id customPanel
-id custom_image
 id dayName
 id dayNumber
 id decelerate
@@ -1713,6 +1661,7 @@ id dragLeft
 id dragRight
 id dragStart
 id dragUp
+id draw_layout
 id easeIn
 id easeInOut
 id easeOut
@@ -1723,8 +1672,6 @@ id end
 id end_padder
 id enterAlways
 id enterAlwaysCollapsed
-id error_frame
-id error_x
 id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
@@ -1751,6 +1698,11 @@ id fragmentloginLogo
 id fragmentloginView1
 id fragmentregisterLogo
 id fragmentregisterView1
+id func1
+id func2
+id func3
+id func4
+id func5
 id ghost_view
 id gone
 id goto_login
@@ -1760,6 +1712,7 @@ id graph_wrap
 id group_divider
 id groups
 id ham
+id headerImg
 id home
 id homeAsUp
 id honorRequest
@@ -1825,11 +1778,10 @@ id mainImageView3
 id mainProgressBar1
 id mainProgressBar_regis
 id main_toolbar
-id mask_left
-id mask_right
 id masked
 id media_actions
 id menu_fragments
+id menu_right
 id message
 id middle
 id mini
@@ -1838,10 +1790,8 @@ id motion_base
 id mtrl_child_content_container
 id mtrl_internal_children_alpha_tag
 id multiply
+id navView
 id nav_controller_view_tag
-id nav_gallery
-id nav_home
-id nav_slideshow
 id navigation_header_container
 id never
 id none
@@ -1874,6 +1824,7 @@ id passward
 id path
 id pathRelative
 id percent
+id personal_name
 id piecePlace_custom
 id piecePlace_dot_1
 id piecePlace_dot_2_1
@@ -1920,9 +1871,7 @@ id piecePlace_share
 id pin
 id position
 id postLayout
-id progressWheel
 id progress_circular
-id progress_dialog
 id progress_horizontal
 id radio
 id ratio
@@ -1987,8 +1936,6 @@ id stop
 id stretch
 id submenuarrow
 id submit_area
-id success_frame
-id success_tick
 id tabMode
 id tag_transition_group
 id tag_unhandled_key_event_manager
@@ -2010,7 +1957,6 @@ id time
 id title
 id titleDividerNoCustom
 id title_template
-id title_text
 id toggle
 id top
 id topLayout
@@ -2032,19 +1978,16 @@ id uniform
 id unlabeled
 id up
 id useLogo
+id user_info
 id username
 id username_register
 id video
 id view_offset_helper
 id visible
-id warning_frame
 id wave_view
 id withText
 id wrap
 id wrap_content
-id x
-id y
-id z
 integer abc_config_activityDefaultDur
 integer abc_config_activityShortDur
 integer app_bar_elevation_anim_duration
@@ -2113,7 +2056,6 @@ layout abc_tooltip
 layout activity_done
 layout activity_login
 layout activity_welcome
-layout alert_dialog
 layout bmb
 layout bmb_ham_button
 layout bmb_simple_circle_button
@@ -2139,6 +2081,7 @@ layout fragment_login
 layout fragment_question
 layout fragment_register
 layout fragment_wave
+layout header_layout
 layout item_calendar
 layout layout_colordialog
 layout layout_cookie
@@ -2167,8 +2110,9 @@ layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
 layout support_simple_spinner_dropdown_item
-menu activity_main_drawer
 menu demo
+menu main_toolbar
+menu nav_menu
 mipmap ic_help
 mipmap ic_info
 mipmap ic_success
@@ -2176,7 +2120,6 @@ mipmap ic_wrong
 mipmap icon_warning
 raw courage_liangjingru
 raw king_video
-string LOADING
 string abc_action_bar_home_description
 string abc_action_bar_up_description
 string abc_action_menu_overflow_description
@@ -2224,11 +2167,11 @@ string appbar_scrolling_view_behavior
 string bottom_sheet_behavior
 string character_counter_content_description
 string character_counter_pattern
-string dialog_cancel
-string dialog_default_title
-string dialog_ok
 string dummy_button
 string dummy_content
+string enter_key
+string enter_pass
+string enter_user_name
 string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
 string hello_blank_fragment
@@ -2264,6 +2207,7 @@ string text
 string title_activity_demo
 string title_activity_login
 string title_activity_welcome
+string user_profile_default
 string welcome
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light
@@ -2653,7 +2597,6 @@ style ThemeOverlay_MaterialComponents_TextInputEditText_FilledBox
 style ThemeOverlay_MaterialComponents_TextInputEditText_FilledBox_Dense
 style ThemeOverlay_MaterialComponents_TextInputEditText_OutlinedBox
 style ThemeOverlay_MaterialComponents_TextInputEditText_OutlinedBox_Dense
-style TransparentText
 style Widget_AppCompat_ActionBar
 style Widget_AppCompat_ActionBar_Solid
 style Widget_AppCompat_ActionBar_TabBar
@@ -2776,9 +2719,7 @@ style Widget_MaterialComponents_TextInputLayout_OutlinedBox
 style Widget_MaterialComponents_TextInputLayout_OutlinedBox_Dense
 style Widget_MaterialComponents_Toolbar
 style Widget_Support_CoordinatorLayout
-style alert_dialog
 style color_dialog
-style dialog_blue_button
 styleable ActionBar background backgroundSplit backgroundStacked contentInsetEnd contentInsetEndWithActions contentInsetLeft contentInsetRight contentInsetStart contentInsetStartWithNavigation customNavigationLayout displayOptions divider elevation height hideOnContentScroll homeAsUpIndicator homeLayout icon indeterminateProgressStyle itemPadding logo navigationMode popupTheme progressBarPadding progressBarStyle subtitle subtitleTextStyle title titleTextStyle
 styleable ActionBarLayout android_layout_gravity
 styleable ActionMenuItemView android_minWidth
@@ -2873,11 +2814,9 @@ styleable OnSwipe dragDirection dragScale dragThreshold limitBoundsTo maxAcceler
 styleable PercentLayout_Layout layout_aspectRatio layout_heightPercent layout_marginBottomPercent layout_marginEndPercent layout_marginLeftPercent layout_marginPercent layout_marginRightPercent layout_marginStartPercent layout_marginTopPercent layout_widthPercent
 styleable PopupWindow android_popupBackground android_popupAnimationStyle overlapAnchor
 styleable PopupWindowBackgroundState state_above_anchor
-styleable ProgressWheel barColor barSpinCycleTime barWidth circleRadius fillRadius progressIndeterminate rimColor rimWidth spinSpeed
 styleable PropertySet android_visibility android_alpha layout_constraintTag motionProgress visibilityMode
 styleable RecycleListView paddingBottomNoButtons paddingTopNoTitle
 styleable RecyclerView android_orientation android_descendantFocusability fastScrollEnabled fastScrollHorizontalThumbDrawable fastScrollHorizontalTrackDrawable fastScrollVerticalThumbDrawable fastScrollVerticalTrackDrawable layoutManager reverseLayout spanCount stackFromEnd
-styleable Rotate3dAnimation fromDeg pivotX pivotY rollType toDeg
 styleable ScrimInsetsFrameLayout insetForeground
 styleable ScrollingViewBehavior_Layout behavior_overlapTop
 styleable SearchView android_focusable android_maxWidth android_inputType android_imeOptions closeIcon commitIcon defaultQueryHint goIcon iconifiedByDefault layout queryBackground queryHint searchHintIcon searchIcon submitBackground suggestionRowLayout voiceIcon

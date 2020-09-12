@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/func1"
+            android:icon="@drawable/menu_right"
+            android:title="func1"/>
+        <item
+            android:id="@+id/func2"
+            android:icon="@drawable/menu_right"
+            android:title="func2"/>
+        <item
+            android:id="@+id/func3"
+            android:icon="@drawable/menu_right"
+            android:title="func3"/>
+        <item
+            android:id="@+id/func4"
+            android:icon="@drawable/menu_right"
+            android:title="func4"/>
+        <item
+            android:id="@+id/func5"
+            android:icon="@drawable/menu_right"
+            android:title="func5"/>
+    </group>
+</menu>

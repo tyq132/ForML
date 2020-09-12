@@ -23,6 +23,7 @@
         android:maxAspectRatio="2.4"
         android:resizeableActivity="true"
         android:supportsRtl="true"
+        android:testOnly="true"
         android:theme="@style/AppTheme" >
         <activity
             android:name="ai.love.activity.WelcomeActivity"
@@ -35,7 +36,10 @@
         </activity>
         <activity android:name="ai.love.activity.DoneActivity" />
         <activity android:name="ai.love.LoginActivity" />
-        <activity android:name="ai.love.MainActivity" />
+        <activity
+            android:name="ai.love.MainActivity"
+            android:theme="@style/Theme.Design.Light.NoActionBar" >
+        </activity>
 
         <provider
             android:name="android.arch.lifecycle.ProcessLifecycleOwnerInitializer"

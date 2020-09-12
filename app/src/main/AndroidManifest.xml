@@ -16,7 +16,6 @@
         android:resizeableActivity="true"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        tools:replace="android:icon"
         tools:targetApi="o">
         <activity
             android:name=".activity.WelcomeActivity"
@@ -29,7 +28,9 @@
         </activity>
         <activity android:name=".activity.DoneActivity" />
         <activity android:name=".LoginActivity" />
-        <activity android:name=".MainActivity" />
+        <activity android:name=".MainActivity"
+            android:theme="@style/Theme.Design.Light.NoActionBar">
+        </activity>
     </application>
 
 </manifest>

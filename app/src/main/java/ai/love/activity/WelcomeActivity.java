@@ -10,15 +10,17 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.view.animation.OvershootInterpolator;
 import android.widget.Button;
+
+import com.liuguangqiang.cookie.CookieBar;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -99,7 +101,15 @@ public class WelcomeActivity extends AppCompatActivity{
 
             @Override
             public void onAnimationEnd(Animator animation) {
-                Snackbar.make(getCurrentFocus(),"黑乎乎的",Snackbar.LENGTH_LONG).show();
+
+                new CookieBar.Builder(WelcomeActivity.this)
+                        .setTitle("好久不见！")
+                        .setIcon(R.drawable.seal)
+                        .setBackgroundColor(R.color.color_primary_men)
+                        .setMessage("点击-->进入APP~").setMessageColor(R.color.color_login_button)
+                        .setDuration(3000)
+                        .setLayoutGravity(Gravity.BOTTOM)
+                        .show();
                 btn.setClickable(true);
             }
 

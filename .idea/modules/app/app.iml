@@ -101,8 +101,6 @@
     <orderEntry type="library" name="Gradle: com.android.support:design:28.0.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support.constraint:constraint-layout:2.0.1@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.github.mzule.fantasyslide:library:1.0.5@aar" level="project" />
-    <orderEntry type="library" name="Gradle: cn.pedant.sweetalert:library:1.3@aar" level="project" />
-    <orderEntry type="library" name="Gradle: com.pnikosis:materialish-progress:1.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:appcompat-v7:28.0.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:recyclerview-v7:28.0.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.android.support:percent:28.0.0@aar" level="project" />

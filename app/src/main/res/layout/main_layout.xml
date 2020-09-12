@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".MainActivity"
     android:orientation="vertical">
 
         <FrameLayout
@@ -14,32 +13,49 @@
             android:id="@+id/menu_fragments"
             />
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/main_toolbar"
+    <android.support.v4.widget.DrawerLayout
+        android:id="@+id/draw_layout"
         android:layout_width="match_parent"
-        android:layout_height="68dp"
-        android:background="@drawable/shape_rectangle_radius"
-        tools:targetApi="lollipop" >
-
-        <TextView
+        android:layout_height="match_parent">
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="这是标题"
-            android:textSize="24dp"
-            android:textAlignment="center"/>
-    </android.support.v7.widget.Toolbar>
+            android:layout_height="match_parent">
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/main_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="68dp"
+                android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+                tools:targetApi="lollipop" >
 
-        <com.nightonke.boommenu.BoomMenuButton
-            android:id="@+id/bmb"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|end"
-            app:bmb_buttonEnum="ham"
-            app:bmb_normalColor="@android:color/holo_red_dark"
-            app:bmb_use3DTransformAnimation="true"
-            app:bmb_piecePlaceEnum="piecePlace_ham_4"
-            app:bmb_buttonPlaceEnum="buttonPlace_ham_4"
-            />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="这是标题"
+                    android:textSize="24dp"
+                    android:textAlignment="center"/>
+            </android.support.v7.widget.Toolbar>
+        </FrameLayout>
+        <android.support.design.widget.NavigationView
+            android:id="@+id/navView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            app:menu="@menu/nav_menu"
+            app:headerLayout="@layout/header_layout"/>
+    </android.support.v4.widget.DrawerLayout>
+
+
+    <com.nightonke.boommenu.BoomMenuButton
+        android:id="@+id/bmb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        app:bmb_buttonEnum="ham"
+        app:bmb_normalColor="@android:color/holo_red_dark"
+        app:bmb_use3DTransformAnimation="true"
+        app:bmb_piecePlaceEnum="piecePlace_ham_4"
+        app:bmb_buttonPlaceEnum="buttonPlace_ham_4"
+        />
 
 
 </android.support.design.widget.CoordinatorLayout>
