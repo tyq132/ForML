@@ -1,7 +1,7 @@
 package ai.love.activity;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 
 import ai.love.R;
 import ai.love.utils.StatusBarUtil;

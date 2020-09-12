@@ -16,7 +16,7 @@ import android.util.AttributeSet;
  *
  * Created by James tang on 2020/9/7.
  */
-public class CircularImageView extends android.support.v7.widget.AppCompatImageView{
+public class CircularImageView extends androidx.appcompat.widget.AppCompatImageView{
 
     public CircularImageView(Context context) {
         super(context);

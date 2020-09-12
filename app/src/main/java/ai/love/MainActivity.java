@@ -1,19 +1,23 @@
 package ai.love;
 
 
+import android.annotation.SuppressLint;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.NavigationView;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.Window;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.drawerlayout.widget.DrawerLayout;
+
+import com.google.android.material.navigation.NavigationView;
 import com.nightonke.boommenu.BoomButtons.BoomButton;
 import com.nightonke.boommenu.BoomButtons.HamButton;
 import com.nightonke.boommenu.BoomMenuButton;
@@ -61,16 +65,20 @@ public class MainActivity extends AppCompatActivity {
 
     private void initToolBar() {
         Toolbar toolbar = findViewById(R.id.main_toolbar);
+        final DrawerLayout drawerLayout = findViewById(R.id.draw_layout);
         NavigationView nav = findViewById(R.id.navView);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            toolbar.setLogo(R.drawable.user_info);
-            setSupportActionBar(toolbar);
-        }
+        setSupportActionBar(toolbar);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @SuppressLint("WrongConstant")
+            @Override
+            public void onClick(View v) {
+                drawerLayout.openDrawer(Gravity.START);
+            }
+        });
         nav.setCheckedItem(R.id.func1);
         nav.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(MenuItem menuItem) {
-                DrawerLayout drawerLayout = findViewById(R.id.draw_layout);
                 drawerLayout.closeDrawers();
                 Toast.makeText(getApplicationContext(),"撒即可得分",Toast.LENGTH_SHORT).show();
                 return true;
@@ -159,6 +167,7 @@ public class MainActivity extends AppCompatActivity {
         switch(item.getItemId()){
             case R.id.menu_right:
                 Toast.makeText(this,"右边的应用菜单",Toast.LENGTH_SHORT).show();
+                break;
         }
         return true;
     }

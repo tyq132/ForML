@@ -1,11 +1,11 @@
 package ai.love.utils;
 
-import android.support.annotation.RequiresApi;
+import androidx.annotation.RequiresApi;
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.Resources;
 import android.os.Build;
-import android.support.annotation.FloatRange;
+import androidx.annotation.FloatRange;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;

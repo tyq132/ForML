@@ -1,5 +1,5 @@
 package ai.love.fragments;
-import android.support.v4.app.Fragment;
+import androidx.fragment.app.Fragment;
 import android.view.View;
 import android.os.Bundle;
 import ai.love.R;
@@ -11,7 +11,7 @@ import devs.mulham.horizontalcalendar.HorizontalCalendarListener;
 import java.util.Date;
 
 import android.graphics.*;
-import android.support.v4.content.ContextCompat;
+import androidx.core.content.ContextCompat;
 import ai.love.utils.StatusBarUtil;
 import android.view.animation.OvershootInterpolator;
 
