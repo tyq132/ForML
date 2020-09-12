@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.github.louisgeek:ClassicLinesEditView:1.0.2@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/df223e5457a33560141f4b2c99d57d10/ClassicLinesEditView-1.0.2/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/df223e5457a33560141f4b2c99d57d10/ClassicLinesEditView-1.0.2/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.louisgeek/ClassicLinesEditView/1.0.2/e365fa8c1e4527bffda16c013dea9b2d9f2fc4ed/ClassicLinesEditView-1.0.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

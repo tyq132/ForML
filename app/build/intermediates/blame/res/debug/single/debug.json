@@ -1,0 +1,410 @@
+[
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\menu_activity_main_drawer.xml.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\menu\\activity_main_drawer.xml"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_plus.png.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\drawable-hdpi\\ic_plus.png"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_wave.xml.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\layout\\fragment_wave.xml"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_plus.png.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\drawable-xxhdpi\\ic_plus.png"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_dashboard.xml.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\layout\\fragment_dashboard.xml"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_pattern_bg_yellow.png.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\drawable-mdpi\\pattern_bg_yellow.png"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_grade_15dp.png.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\ic_grade_15dp.png"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\raw_king_video.mp4.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\raw\\king_video.mp4"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_home.png.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\drawable-xxxhdpi\\home.png"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_success_icon.png.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\drawable-hdpi\\success_icon.png"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_ic_menu_camera.xml.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\drawable-v21\\ic_menu_camera.xml"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_pattern_bg_orange.png.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\drawable-mdpi\\pattern_bg_orange.png"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_launcher.png.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\drawable-mdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_wallet.png.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\drawable-xxxhdpi\\wallet.png"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_image_3.png.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\drawable-hdpi\\image_3.png"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_login_logo.png.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\drawable-hdpi\\login_logo.png"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_rat.png.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\drawable-ldpi\\rat.png"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable_selector_regidter_button.xml.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\drawable\\selector_regidter_button.xml"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_haimian_baby.png.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\drawable-hdpi\\haimian_baby.png"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_grade_15dp.png.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\ic_grade_15dp.png"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_grade_15dp.png.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxhdpi\\ic_grade_15dp.png"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_snake.png.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\drawable-ldpi\\snake.png"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\menu_demo.xml.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\menu\\demo.xml"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_dolphin.png.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\drawable-ldpi\\dolphin.png"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_plus.png.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\drawable-xhdpi\\ic_plus.png"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_bear.png.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\drawable-ldpi\\bear.png"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable_key_icon.png.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\drawable\\key_icon.png"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\raw_courage_liangjingru.mp3.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\raw\\courage_liangjingru.mp3"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_grade_15dp.png.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_grade_15dp.png"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_bat.png.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\drawable-ldpi\\bat.png"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_squirrel.png.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\drawable-ldpi\\squirrel.png"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable_button_login.xml.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\drawable\\button_login.xml"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_wave_bottom.jpg.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\drawable-hdpi\\wave_bottom.jpg"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable_myapp_icon.png.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\drawable\\myapp_icon.png"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_peacock.png.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\drawable-ldpi\\peacock.png"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_launcher.png.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\drawable-xhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable_question_bg.jpg.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\drawable\\question_bg.jpg"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_ic_grade_15dp.png.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\generated\\res\\pngs\\debug\\drawable-ldpi\\ic_grade_15dp.png"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ship.png.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\drawable-hdpi\\ship.png"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_menu.png.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\drawable-xxhdpi\\ic_menu.png"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable_selector_login_button.xml.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\drawable\\selector_login_button.xml"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_gallery.xml.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\layout\\fragment_gallery.xml"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_ic_plus.png.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\drawable-ldpi\\ic_plus.png"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable_side_nav_bar.xml.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\drawable\\side_nav_bar.xml"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_login_bg.jpg.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\drawable-hdpi\\login_bg.jpg"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_eagle.png.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\drawable-ldpi\\eagle.png"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable_button_signup.xml.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\drawable\\button_signup.xml"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable_welcome_background.jpg.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\drawable\\welcome_background.jpg"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\layout_nav_header_main.xml.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\layout\\nav_header_main.xml"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_circle.png.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\drawable-xxxhdpi\\circle.png"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_backpack.png.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\drawable\\ic_backpack.png"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable_done.gif.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\drawable\\done.gif"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_image_2.png.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\drawable-hdpi\\image_2.png"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_ic_menu_gallery.xml.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\drawable-v21\\ic_menu_gallery.xml"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\layout_main_layout.xml.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\layout\\main_layout.xml"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_list_0002.png.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\drawable-xxhdpi\\list_0002.png"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_cat.png.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\drawable-ldpi\\cat.png"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable_user_icon.png.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\drawable\\user_icon.png"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_seal.png.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\drawable-hdpi\\seal.png"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_sample_logo.png.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\drawable-mdpi\\sample_logo.png"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable_password_icon.png.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\drawable\\password_icon.png"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_plus.png.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\drawable-mdpi\\ic_plus.png"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_register_logo.png.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\drawable-hdpi\\register_logo.png"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_wave_bg.jpg.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\drawable-hdpi\\wave_bg.jpg"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_butterfly.png.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\drawable-ldpi\\butterfly.png"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable_kobe.gif.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\drawable\\kobe.gif"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_tip_success.png.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\drawable-hdpi\\tip_success.png"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_register.xml.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\layout\\fragment_register.xml"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_pig.png.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\drawable-ldpi\\pig.png"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_image_1.png.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\drawable-hdpi\\image_1.png"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_settings.png.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\drawable-xxxhdpi\\settings.png"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_list_0000.png.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\drawable-xxhdpi\\list_0000.png"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_launcher.png.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\drawable-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_elephant.png.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\drawable-ldpi\\elephant.png"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_launcher.png.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\drawable-xxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_pattern_bg_blue.png.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\drawable-mdpi\\pattern_bg_blue.png"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_ic_menu_slideshow.xml.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\drawable-v21\\ic_menu_slideshow.xml"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_horse.png.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\drawable-ldpi\\horse.png"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_commit.png.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\drawable-hdpi\\commit.png"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_done.xml.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\layout\\activity_done.xml"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-anydpi-v21_ic_grade_15dp.xml.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\generated\\res\\pngs\\debug\\drawable-anydpi-v21\\ic_grade_15dp.xml"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_friends.png.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\drawable-xxxhdpi\\friends.png"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable_shape_rectangle_radius.xml.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\drawable\\shape_rectangle_radius.xml"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_list_0001.png.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\drawable-xxhdpi\\list_0001.png"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_coupon.png.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\drawable-xxxhdpi\\coupon.png"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_grade_15dp.png.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\ic_grade_15dp.png"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ocean_star.png.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\drawable-hdpi\\ocean_star.png"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_ic_search.png.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\drawable-xxhdpi\\ic_search.png"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_welcome.xml.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\layout\\activity_welcome.xml"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_fail_icon.png.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\drawable-hdpi\\fail_icon.png"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_paper_plane.png.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\drawable-xxhdpi\\paper_plane.png"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_bottle.png.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\drawable-hdpi\\bottle.png"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_tip_fail.png.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\drawable-hdpi\\tip_fail.png"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable_next_step.png.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\drawable\\next_step.png"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_login.xml.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\layout\\fragment_login.xml"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_owl.png.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\drawable-ldpi\\owl.png"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_login.xml.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\layout\\activity_login.xml"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\layout_fragment_question.xml.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\layout\\fragment_question.xml"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_plus.png.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\drawable-xxxhdpi\\ic_plus.png"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_deer.png.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\drawable-ldpi\\deer.png"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi_bee.png.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\drawable-ldpi\\bee.png"
+    },
+    {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable_arrow.png.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\drawable\\arrow.png"
+    }
+]

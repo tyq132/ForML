@@ -1,0 +1,142 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/question_bg"
+    android:orientation="vertical"
+    tools:context="ai.love.fragments.QuestionFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="邮箱："
+            android:textSize="24dp"
+            android:textStyle="normal"
+            android:textAlignment="center"/>
+        <EditText
+            android:layout_width="270dp"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:layout_marginLeft="10dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:gravity="">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="姓名："
+            android:textSize="24dp"
+            android:textStyle="normal" />
+        <EditText
+            android:layout_width="270dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:gravity="">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="七夕，和"
+            android:textSize="24dp"
+            android:textStyle="normal"
+            android:textAlignment="center"/>
+        <EditText
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"/>
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:textSize="24dp"
+            android:text="一起度过"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:gravity="">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="七夕,又称:"
+            android:textSize="24dp"
+            android:textStyle="normal"
+            android:textAlignment="center"/>
+        <EditText
+            android:layout_width="210dp"
+            android:layout_height="wrap_content"
+            android:hint="不要百度哟~"
+            android:layout_marginLeft="10dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:gravity="">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="喜欢他（她）"
+            android:textSize="24dp"
+            android:textStyle="normal"
+            android:textAlignment="center"/>
+        <EditText
+            android:id="@+id/edit_lover"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:hint="填姓氏+公子/姑娘"
+            android:layout_marginLeft="10dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_marginTop="30dp"
+        android:orientation="vertical"
+        android:gravity="center">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="如果有，写几句想对他(她)说的话吧："
+            android:textSize="18dp"
+            android:textStyle="normal"
+            android:gravity="left" />
+        <com.classichu.lineseditview.LinesEditView
+            android:id="@+id/edit_letter"
+            android:layout_margin="10dp"
+            android:background="@color/color_product_bottom"
+            app:classic_hintText="子非我，焉知吾心悦姑娘乎？"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+        <Button
+            android:id="@+id/btn_commit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/color_login_button"
+            android:text="提交"
+            android:textStyle="bold"
+            android:textSize="16dp"/>
+
+    </LinearLayout>
+
+
+
+
+</LinearLayout>

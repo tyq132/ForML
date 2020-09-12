@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.percent.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.flaviofaria.kenburnsview.KenBurnsView
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:src="@drawable/login_bg"
+        android:id="@+id/Login_Register_BG"/>
+    <FrameLayout
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:id="@+id/frag_container"/>
+
+    <RelativeLayout
+        android:id="@+id/button_login"
+        android:background="@drawable/selector_login_button"
+        android:layout_height="@dimen/login_button_height"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        app:layout_marginTopPercent="75%"
+        android:layout_centerHorizontal="true">
+
+
+        <ImageView
+            android:layout_height="0dp"
+            android:layout_width="wrap_content"
+            android:src="@drawable/ic_plus"
+            android:layout_centerInParent="true"
+            android:id="@+id/button_icon"
+            android:alpha="0"/>
+
+        <ProgressBar
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_centerInParent="true"
+            android:id="@+id/mainProgressBar1"
+            android:alpha="0"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="登录"
+            android:layout_centerInParent="true"
+            android:padding="20dp"
+            android:typeface="serif"
+            android:textColor="#FFFFFF"
+            android:id="@+id/button_label"/>
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/button_register"
+        android:background="@drawable/selector_regidter_button"
+        android:layout_height="@dimen/login_button_height"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        app:layout_marginTopPercent="75%"
+        android:layout_centerHorizontal="true">
+
+
+        <ImageView
+            android:layout_height="0dp"
+            android:layout_width="wrap_content"
+            android:src="@drawable/success_icon"
+            android:layout_centerInParent="true"
+            android:id="@+id/button_icon_regis"
+            android:alpha="0"/>
+
+        <ProgressBar
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_centerInParent="true"
+            android:id="@+id/mainProgressBar_regis"
+            android:alpha="0"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="注册"
+            android:layout_centerInParent="true"
+            android:padding="20dp"
+            android:typeface="serif"
+            android:textColor="#FFFFFF"
+            android:id="@+id/button_label_regis"/>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_marginBottom="20dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:id="@+id/label_signup"
+        android:alpha="0">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#cccccc"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="没有账号？"
+            android:typeface="serif"/>
+
+        <TextView
+            android:id="@+id/goto_register"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="去注册"
+            android:textColor="@color/color_login_buttonpress"
+            android:textStyle="bold"
+            android:layout_marginLeft="10dp"
+            android:typeface="serif"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_marginBottom="20dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:id="@+id/label_loginin"
+        android:visibility="gone"
+        android:alpha="0">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#cccccc"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="已注册？"
+            android:typeface="serif"/>
+
+        <TextView
+            android:id="@+id/goto_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="去登陆"
+            android:textColor="@color/color_primary_men"
+            android:textStyle="bold"
+            android:layout_marginLeft="10dp"
+            android:typeface="serif"/>
+
+    </LinearLayout>
+
+</android.support.percent.PercentRelativeLayout>
+
