@@ -46,6 +46,11 @@ public class DiskLruCacheUtil {
         }
     }
 
+    /**
+     *
+     * @param key
+     * @return key对应的值
+     */
     public String getCache(String key){
 
         try {
