@@ -1,13 +1,17 @@
 package ai.love.fragments.menus;
 
 import android.os.Bundle;
-import androidx.fragment.app.Fragment;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 import ai.love.R;
 import ai.love.view.WaveView;
@@ -29,19 +33,23 @@ public class WaveFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_wave, container, false);
         waveView =  view.findViewById(R.id.wave_view);
-        icon1 = view.findViewById(R.id.icon);
+        icon1 = view.findViewById(R.id.baby);
         ship = view.findViewById(R.id.ship);
         bottle = view.findViewById(R.id.bottle);
-        ship.setOnClickListener(new View.OnClickListener() {
+
+        icon1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Log.e("爱神的箭后方可：","");
             }
         });
-
         initWaveIcon();
-
         return view;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
     }
 
     private void initWaveIcon() {
@@ -63,5 +71,9 @@ public class WaveFragment extends Fragment {
                 bottle.setLayoutParams(lp2);
             }
         });
+    }
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
     }
 }

@@ -53,7 +53,7 @@
 			app:textColorSelected="#ff0000"
 			android:layout_alignParentBottom="true"/>
 
-		<ai.love.utils.CircularImageView
+		<de.hdodenhof.circleimageview.CircleImageView
 			android:layout_height="140dp"
 			android:layout_width="140dp"
 			android:scaleType="centerCrop"
