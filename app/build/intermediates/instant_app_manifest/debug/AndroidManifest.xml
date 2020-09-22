@@ -13,6 +13,9 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.USE_FINGERPRINT" />
+    <uses-permission android:name="com.fingerprints.service.ACCESS_FINGERPRINT_MANAGER" />
+    <uses-permission android:name="com.samsung.android.providers.context.permission.WRITE_USE_APP_FEATURE_SURVEY" />
 
     <application
         android:allowBackup="true"
@@ -26,7 +29,7 @@
         android:testOnly="true"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="ai.love.activity.WelcomeActivity"
+            android:name="ai.love.WelcomeActivity"
             android:configChanges="orientation|keyboardHidden|screenSize" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -35,7 +38,7 @@
             </intent-filter>
         </activity>
         <activity android:name="ai.love.activity.DoneActivity" />
-        <activity android:name="ai.love.LoginActivity" />
+        <activity android:name="ai.love.activity.LoginActivity" />
         <activity
             android:name="ai.love.MainActivity"
             android:theme="@style/Theme.Design.Light.NoActionBar" >

@@ -1438,6 +1438,7 @@ drawable done
 drawable eagle
 drawable elephant
 drawable fail_icon
+drawable finger_print
 drawable friends
 drawable haimian_baby
 drawable header_01

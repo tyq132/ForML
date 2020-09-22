@@ -288,6 +288,10 @@
         "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\drawable\\kobe.gif"
     },
     {
+        "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_finger_print.png.flat",
+        "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\drawable-xxxhdpi\\finger_print.png"
+    },
+    {
         "merged": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_tip_success.png.flat",
         "source": "D:\\GoogleDownload\\ML-Application-master\\app\\src\\main\\res\\drawable-hdpi\\tip_success.png"
     },

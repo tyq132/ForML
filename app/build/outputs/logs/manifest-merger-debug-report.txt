@@ -1,14 +1,15 @@
 -- Merging decision tree log ---
 manifest
-ADDED from D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:2:1-37:12
-INJECTED from D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:2:1-37:12
-INJECTED from D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:2:1-37:12
-INJECTED from D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:2:1-37:12
+ADDED from D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:2:1-40:12
+INJECTED from D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:2:1-40:12
+INJECTED from D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:2:1-40:12
+INJECTED from D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:2:1-40:12
 MERGED from [com.daasuu:EasingInterpolator:1.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\50e159592a52e6c764138739c6f6b9cc\jetified-EasingInterpolator-1.0.0\AndroidManifest.xml:2:1-17:12
 MERGED from [devs.mulham.horizontalcalendar:horizontalcalendar:1.1.7] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\2b20f70ba16d20fc714ed2387eedc6a2\jetified-horizontalcalendar-1.1.7\AndroidManifest.xml:2:1-14:12
 MERGED from [com.github.louisgeek:ClassicLinesEditView:1.0.2] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\8d84a94821ba50796fc14141d3ae59ec\ClassicLinesEditView-1.0.2\AndroidManifest.xml:2:1-17:12
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\86e1e5d883ec66c1063a0d9a82a27792\constraintlayout-2.0.1\AndroidManifest.xml:2:1-11:12
 MERGED from [com.github.mzule.fantasyslide:library:1.0.5] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\f7bc27760bf0b52e5d52d4df61a53179\jetified-library-1.0.5\AndroidManifest.xml:2:1-14:12
+MERGED from [com.wei.android.lib:fingerprintidentify:1.2.6] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\6976ed5eb5ab552c90206d7f149f27ca\jetified-fingerprintidentify-1.2.6\AndroidManifest.xml:2:1-11:12
 MERGED from [com.liuguangqiang.cookie:CookieBar:1.0.1] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\1f5a6fffad210221ea4d38f2c8ab2895\jetified-CookieBar-1.0.1\AndroidManifest.xml:2:1-17:12
 MERGED from [androidx.navigation:navigation-ui:2.3.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\d0f92c0b26fabb47a28488bab3cc8456\navigation-ui-2.3.0\AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.material:material:1.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\d9fe90b20373e53cda14cf70a3a9d6b6\material-1.0.0\AndroidManifest.xml:17:1-24:12
@@ -58,22 +59,22 @@ MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\Administrator\.g
 MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\d711f81259436f09ffdf0b48105165e3\localbroadcastmanager-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.print:print:1.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\87e4a5cb4839ebd5d033fa0ae6227780\print-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [pl.droidsonroids:relinker:1.3.1] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\9db67de273890ee416ab37bf8ab486a9\relinker-1.3.1\AndroidManifest.xml:2:1-7:12
-INJECTED from D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:2:1-37:12
-INJECTED from D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:2:1-37:12
-INJECTED from D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:2:1-37:12
+INJECTED from D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:2:1-40:12
+INJECTED from D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:2:1-40:12
+INJECTED from D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:2:1-40:12
 	package
 		ADDED from D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:4:5-22
 		INJECTED from D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml
 		INJECTED from D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml
-		ADDED from D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:2:1-37:12
+		ADDED from D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:2:1-40:12
 		INJECTED from D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml
 	xmlns:tools
 		ADDED from D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:3:5-51
 	android:versionCode
 		INJECTED from D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml
-		ADDED from D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:2:1-37:12
+		ADDED from D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:2:1-40:12
 		INJECTED from D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:2:11-69
@@ -93,8 +94,20 @@ uses-permission#android.permission.READ_EXTERNAL_STORAGE
 ADDED from D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:9:5-80
 	android:name
 		ADDED from D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:9:22-77
+uses-permission#android.permission.USE_FINGERPRINT
+ADDED from D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:10:5-73
+	android:name
+		ADDED from D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:10:22-71
+uses-permission#com.fingerprints.service.ACCESS_FINGERPRINT_MANAGER
+ADDED from D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:11:5-90
+	android:name
+		ADDED from D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:11:22-88
+uses-permission#com.samsung.android.providers.context.permission.WRITE_USE_APP_FEATURE_SURVEY
+ADDED from D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:12:5-116
+	android:name
+		ADDED from D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:12:22-114
 application
-ADDED from D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:11:5-35:19
+ADDED from D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:14:5-38:19
 MERGED from [com.daasuu:EasingInterpolator:1.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\50e159592a52e6c764138739c6f6b9cc\jetified-EasingInterpolator-1.0.0\AndroidManifest.xml:11:5-15:19
 MERGED from [com.daasuu:EasingInterpolator:1.0.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\50e159592a52e6c764138739c6f6b9cc\jetified-EasingInterpolator-1.0.0\AndroidManifest.xml:11:5-15:19
 MERGED from [devs.mulham.horizontalcalendar:horizontalcalendar:1.1.7] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\2b20f70ba16d20fc714ed2387eedc6a2\jetified-horizontalcalendar-1.1.7\AndroidManifest.xml:11:5-12:19
@@ -124,53 +137,53 @@ MERGED from [androidx.core:core:1.3.1] C:\Users\Administrator\.gradle\caches\tra
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\67aa86ef8808cac41aa5afe6d271f3ea\versionedparcelable-1.1.0\AndroidManifest.xml:24:5-25:19
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\67aa86ef8808cac41aa5afe6d271f3ea\versionedparcelable-1.1.0\AndroidManifest.xml:24:5-25:19
 	android:maxAspectRatio
-		ADDED from D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:15:9-37
+		ADDED from D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:18:9-37
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.3.1] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\ae3468b444d41a56f261ecbb8448fe17\core-1.3.1\AndroidManifest.xml:24:18-86
 	android:supportsRtl
-		ADDED from D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:17:9-35
+		ADDED from D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:20:9-35
 	android:label
-		ADDED from D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:14:9-41
+		ADDED from D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:17:9-41
 	android:resizeableActivity
-		ADDED from D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:16:9-42
+		ADDED from D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:19:9-42
 	tools:targetApi
-		ADDED from D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:20:9-28
+		ADDED from D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:23:9-28
 	android:icon
-		ADDED from D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:13:9-44
+		ADDED from D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:16:9-44
 	android:allowBackup
-		ADDED from D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:12:9-35
+		ADDED from D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:15:9-35
 	android:theme
-		ADDED from D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:19:9-40
-activity#ai.love.activity.WelcomeActivity
-ADDED from D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:21:9-29:20
+		ADDED from D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:22:9-40
+activity#ai.love.WelcomeActivity
+ADDED from D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:24:9-32:20
 	android:configChanges
-		ADDED from D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:23:13-74
+		ADDED from D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:26:13-74
 	android:name
-		ADDED from D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:22:13-53
+		ADDED from D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:25:13-44
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:24:13-28:29
+ADDED from D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:27:13-31:29
 action#android.intent.action.MAIN
-ADDED from D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:25:17-69
+ADDED from D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:28:17-69
 	android:name
-		ADDED from D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:25:25-66
+		ADDED from D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:28:25-66
 category#android.intent.category.LAUNCHER
-ADDED from D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:27:17-77
+ADDED from D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:30:17-77
 	android:name
-		ADDED from D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:27:27-74
+		ADDED from D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:30:27-74
 activity#ai.love.activity.DoneActivity
-ADDED from D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:30:9-59
+ADDED from D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:33:9-59
 	android:name
-		ADDED from D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:30:19-56
-activity#ai.love.LoginActivity
-ADDED from D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:31:9-51
+		ADDED from D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:33:19-56
+activity#ai.love.activity.LoginActivity
+ADDED from D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:34:9-60
 	android:name
-		ADDED from D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:31:19-48
+		ADDED from D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:34:19-57
 activity#ai.love.MainActivity
-ADDED from D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:32:9-34:20
+ADDED from D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:35:9-37:20
 	android:theme
-		ADDED from D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:33:13-66
+		ADDED from D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:36:13-66
 	android:name
-		ADDED from D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:32:19-47
+		ADDED from D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:35:19-47
 uses-sdk
 INJECTED from D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml
@@ -185,6 +198,8 @@ MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] C:\Users\Administ
 MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\86e1e5d883ec66c1063a0d9a82a27792\constraintlayout-2.0.1\AndroidManifest.xml:5:5-7:41
 MERGED from [com.github.mzule.fantasyslide:library:1.0.5] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\f7bc27760bf0b52e5d52d4df61a53179\jetified-library-1.0.5\AndroidManifest.xml:7:5-9:41
 MERGED from [com.github.mzule.fantasyslide:library:1.0.5] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\f7bc27760bf0b52e5d52d4df61a53179\jetified-library-1.0.5\AndroidManifest.xml:7:5-9:41
+MERGED from [com.wei.android.lib:fingerprintidentify:1.2.6] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\6976ed5eb5ab552c90206d7f149f27ca\jetified-fingerprintidentify-1.2.6\AndroidManifest.xml:7:5-9:41
+MERGED from [com.wei.android.lib:fingerprintidentify:1.2.6] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\6976ed5eb5ab552c90206d7f149f27ca\jetified-fingerprintidentify-1.2.6\AndroidManifest.xml:7:5-9:41
 MERGED from [com.liuguangqiang.cookie:CookieBar:1.0.1] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\1f5a6fffad210221ea4d38f2c8ab2895\jetified-CookieBar-1.0.1\AndroidManifest.xml:7:5-9:41
 MERGED from [com.liuguangqiang.cookie:CookieBar:1.0.1] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\1f5a6fffad210221ea4d38f2c8ab2895\jetified-CookieBar-1.0.1\AndroidManifest.xml:7:5-9:41
 MERGED from [androidx.navigation:navigation-ui:2.3.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\d0f92c0b26fabb47a28488bab3cc8456\navigation-ui-2.3.0\AndroidManifest.xml:20:5-22:41
