@@ -149,6 +149,6 @@
     <orderEntry type="library" name="Gradle: com.liuguangqiang.cookie:CookieBar:1.0.1@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.nightonke:boommenu:2.1.1@aar" level="project" />
     <orderEntry type="library" name="Gradle: de.hdodenhof:circleimageview:2.1.0@aar" level="project" />
-    <orderEntry type="library" name="Gradle: com.wei.android.lib:fingerprintidentify:1.2.6@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.kevalpatel2106:fingerprint-dialog-compat:1.0@aar" level="project" />
   </component>
 </module>

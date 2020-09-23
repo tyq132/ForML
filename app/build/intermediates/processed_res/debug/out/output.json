@@ -21,7 +21,7 @@
       "properties": {
         "packageId": "ml.application",
         "split": "",
-        "minSdkVersion": "19"
+        "minSdkVersion": "21"
       }
     }
   ]

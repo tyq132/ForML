@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "ml.application"
-        minSdkVersion 19
+        minSdkVersion 21
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -38,7 +38,7 @@ dependencies {
     implementation 'com.github.mzule.fantasyslide:library:1.0.5'
     implementation "androidx.drawerlayout:drawerlayout:1.1.1"
     implementation 'de.hdodenhof:circleimageview:2.1.0'
-    implementation 'com.wei.android.lib:fingerprintidentify:1.2.6'
+    implementation 'com.kevalpatel2106:fingerprint-dialog-compat:1.0'
 
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])

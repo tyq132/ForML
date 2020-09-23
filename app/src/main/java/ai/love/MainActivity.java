@@ -15,26 +15,26 @@ import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.material.navigation.NavigationView;
-import com.liuguangqiang.cookie.CookieBar;
-import com.liuguangqiang.cookie.OnActionClickListener;
+import com.kevalpatel2106.fingerprintdialog.AuthenticationCallback;
+import com.kevalpatel2106.fingerprintdialog.FingerprintDialogBuilder;
 import com.nightonke.boommenu.BoomButtons.BoomButton;
 import com.nightonke.boommenu.BoomButtons.HamButton;
 import com.nightonke.boommenu.BoomMenuButton;
 import com.nightonke.boommenu.OnBoomListener;
-import com.wei.android.lib.fingerprintidentify.FingerprintIdentify;
-import com.wei.android.lib.fingerprintidentify.base.BaseFingerprint;
 
 import ai.love.fragments.QuestionFragment;
 
 public class MainActivity extends AppCompatActivity {
 
-    private FingerprintIdentify mFingerprintIdentify;
+    /*指纹验证回调*/
+    private AuthenticationCallback fingerPrintCallback;
 
     private static int[] imageResources = new int[]{
             R.drawable.bat,
@@ -64,6 +64,8 @@ public class MainActivity extends AppCompatActivity {
             window.setStatusBarColor(Color.BLUE);
         }
         setContentView(R.layout.main_layout);
+        initCallBack();
+        initFingerprintIdentify();
         frameLayout = findViewById(R.id.menu_fragments);
         currentFragment = new QuestionFragment();
         /*显示fragment*/
@@ -74,6 +76,60 @@ public class MainActivity extends AppCompatActivity {
         BoomMenuButton bmb = findViewById(R.id.bmb);
         initBmb(bmb);
         initBmbClickListener(bmb);
+    }
+
+    private void initCallBack() {
+        fingerPrintCallback = new AuthenticationCallback() {
+            @Override
+            public void fingerprintAuthenticationNotSupported() {
+                // Device doesn't support fingerprint authentication. May be device doesn't have fingerprint hardware or device is running on Android below Marshmallow.
+                // Switch to alternate authentication method.
+                Log.e("指纹验证","不支持");
+            }
+
+            @Override
+            public void hasNoFingerprintEnrolled() {
+                // User has no fingerprint enrolled.
+                // Application should redirect the user to the lock screen settings.
+                // FingerprintUtils.openSecuritySettings(this)
+                Log.e("指纹验证","没有录入指纹");
+            }
+
+            @Override
+            public void onAuthenticationError(final int errorCode, @Nullable final CharSequence errString) {
+                // Unrecoverable error. Cannot use fingerprint scanner. Library will stop scanning for the fingerprint after this callback.
+                // Switch to alternate authentication method.
+                Log.e("错误码"+errorCode,"info:"+errString);
+                if(errorCode == 5){
+                    onBackPressed();
+                }
+            }
+
+            @Override
+            public void onAuthenticationHelp(final int helpCode, @Nullable final CharSequence helpString) {
+                // Authentication process has some warning. such as "Sensor dirty, please clean it."
+                // Handle it if you want. Library will continue scanning for the fingerprint after this callback.
+            }
+
+            @Override
+            public void authenticationCanceledByUser() {
+                // User canceled the authentication by tapping on the cancel button (which is at the bottom of the dialog).
+            }
+
+            @Override
+            public void onAuthenticationSucceeded() {
+                // Authentication success
+                // Your user is now authenticated.
+                Log.e("指纹验证","成功");
+            }
+
+            @Override
+            public void onAuthenticationFailed() {
+                // Authentication failed.
+                // Library will continue scanning the fingerprint after this callback.
+                Log.e("指纹验证","失败");
+            }
+        };
     }
 
     private void initToolBar() {
@@ -141,7 +197,14 @@ public class MainActivity extends AppCompatActivity {
             public void onClicked(int index, BoomButton boomButton) {
                 if(index == 0){
                     System.out.println("点击了0");
-                    initFingerprintIdentify();
+                }else if(index == 1){
+                    FingerprintDialogBuilder dialogBuilder = new FingerprintDialogBuilder(MainActivity.this)
+                            .setTitle("请验证指纹")
+                            .setSubtitle("验证指纹以解相关内容")
+                            .setDescription("骑个马上打款了法国今年科技馆虐生日就给你发的结果那没事的开发解放路快递公司考量的")
+                            .setNegativeButton("取消");
+                    dialogBuilder.show(getSupportFragmentManager(),fingerPrintCallback);
+
                 }
             }
 
@@ -173,72 +236,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initFingerprintIdentify() {
-        mFingerprintIdentify = new FingerprintIdentify(MainActivity.this);       // 构造对象
-        mFingerprintIdentify.setSupportAndroidL(true);              // 支持安卓L及以下系统
-        mFingerprintIdentify.setExceptionListener(new BaseFingerprint.ExceptionListener(){
-            @Override
-            public void onCatchException(Throwable exception) {
-                Log.e(MainActivity.class.getName()+"execption info:",exception.toString());
-            }
-        });        // 错误回调（错误仅供开发使用）
-        mFingerprintIdentify.init();// 初始化，必须调用
-        if(mFingerprintIdentify.isFingerprintEnable() && mFingerprintIdentify.isHardwareEnable()){
-            if(mFingerprintIdentify.isRegisteredFingerprint()){
-
-                final CookieBar.Builder builder = new CookieBar.Builder(MainActivity.this);
-                builder.setTitle("好久不见！")
-                        .setIcon(R.drawable.finger_print)
-                        .setBackgroundColor(R.color.color_primary_men)
-                        .setMessage("点击-->进入APP~").setMessageColor(R.color.color_login_button)
-                        .setLayoutGravity(Gravity.BOTTOM)
-                        .setAction("取消", new OnActionClickListener() {
-                            @Override
-                            public void onClick() {
-                                mFingerprintIdentify.cancelIdentify();
-                            }
-                        })
-                        .show();
-
-                mFingerprintIdentify.startIdentify(5, new BaseFingerprint.IdentifyListener() {
-                    @Override
-                    public void onSucceed() {
-                        // 验证成功，自动结束指纹识别
-                        Toast.makeText(MainActivity.this,"验证通过",Toast.LENGTH_SHORT).show();
-                        mFingerprintIdentify.cancelIdentify();
-                    }
-
-                    @Override
-                    public void onNotMatch(int availableTimes) {
-                        // 指纹不匹配，并返回可用剩余次数并自动继续验证
-                        Toast.makeText(MainActivity.this,"错误，还剩"+availableTimes+"次机会",Toast.LENGTH_LONG).show();
-                    }
-
-                    @Override
-                    public void onFailed(boolean isDeviceLocked) {
-                        // 错误次数达到上限或者API报错停止了验证，自动结束指纹识别
-                        // isDeviceLocked 表示指纹硬件是否被暂时锁定
-                       if(isDeviceLocked){
-                           Toast.makeText(MainActivity.this,"指纹硬件已锁定！",Toast.LENGTH_LONG).show();
-                       }
-                    }
-
-                    @Override
-                    public void onStartFailedByDeviceLocked() {
-                        // 第一次调用startIdentify失败，因为设备被暂时锁定
-                    }
-                });
-            }else{
-                Toast.makeText(MainActivity.this,"未录入指纹",Toast.LENGTH_SHORT).show();
-            }
-        }else{
-            Toast.makeText(MainActivity.this,""+mFingerprintIdentify.isFingerprintEnable()+"|"+mFingerprintIdentify.isHardwareEnable(),Toast.LENGTH_LONG).show();
-        }
-       /* mFingerprintIdentify.isFingerprintEnable();                 // 指纹硬件可用并已经录入指纹
-        mFingerprintIdentify.isHardwareEnable();                    // 指纹硬件是否可用*/
-       /* mFingerprintIdentify.isRegisteredFingerprint();             // 是否已经录入指纹
-        mFingerprintIdentify.startIdentify(maxTimes, listener);     // 开始验证指纹识别*/
-        /*mFingerprintIdentify.cancelIdentify();                      // 关闭指纹识别
-        mFingerprintIdentify.resumeIdentify();                      // 恢复指纹识别并保证错误次数不变*/
+        FingerprintDialogBuilder dialogBuilder = new FingerprintDialogBuilder(MainActivity.this)
+                .setTitle("请验证指纹")
+                .setSubtitle("验证指纹以解相关内容")
+                .setDescription("骑个马上打款了法国今年科技馆虐生日就给你发的结果那没事的开发解放路快递公司考量的")
+                .setNegativeButton("取消");
+        dialogBuilder.show(getSupportFragmentManager(),fingerPrintCallback);
     }
 
     @Override
