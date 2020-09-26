@@ -39,9 +39,11 @@ dependencies {
     implementation "androidx.drawerlayout:drawerlayout:1.1.1"
     implementation 'de.hdodenhof:circleimageview:2.1.0'
     implementation 'com.kevalpatel2106:fingerprint-dialog-compat:1.0'
-
+    implementation 'com.wei.android.lib:fingerprintidentify:1.2.6'
+    implementation 'com.github.javiersantos:BottomDialogs:1.2.1'
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.navigation:navigation-fragment:2.3.0'
     implementation 'androidx.navigation:navigation-ui:2.3.0'
+    implementation 'androidx.preference:preference:1.1.0'
 }

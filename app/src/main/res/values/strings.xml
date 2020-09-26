@@ -139,4 +139,24 @@
     <string name="enter_pass">填入你的密码</string>
     <string name="enter_user_name">填写你的昵称</string>
     <string name="user_profile_default">这个人很懒，啥也没留下~</string>
+    <string name="title_activity_settings">Setting</string>
+
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="security">安全</string>
+    <string name="fingerPrint_login">启用指纹验证登录</string>
+    <string name="fingerprint_failure_not_lock">验证失败不锁定应用</string>
+    <string name="fingerprint_falure_locked">验证失败锁定应用</string>
 </resources>

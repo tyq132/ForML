@@ -4,15 +4,19 @@ import android.Manifest;
 import android.animation.Animator;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.animation.OvershootInterpolator;
 import android.widget.Button;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AlertDialog;
@@ -20,11 +24,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import com.github.javiersantos.bottomdialogs.BottomDialog;
 import com.liuguangqiang.cookie.CookieBar;
+import com.wei.android.lib.fingerprintidentify.FingerprintIdentify;
+import com.wei.android.lib.fingerprintidentify.base.BaseFingerprint;
 
+import java.util.Objects;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import ai.love.activity.LoginActivity;
 import ai.love.utils.DiskLruCacheUtil;
 import ai.love.utils.StatusBarUtil;
 import ai.love.view.FViewView;
@@ -37,6 +46,8 @@ public class WelcomeActivity extends AppCompatActivity{
 
     private DiskLruCacheUtil mDiskCacheUtil;
     private volatile boolean isAllPermissionsChecked = false;
+    private FingerprintIdentify mFingerprintIdentify;
+    private BottomDialog dialog;
 
     private AlertDialog alertDialog;
     private AlertDialog mDialog;
@@ -141,18 +152,126 @@ public class WelcomeActivity extends AppCompatActivity{
     }
 
     private void jumpToLogin() {
-        /*Intent intent = new Intent(this, LoginActivity.class);
+        Intent intent = new Intent(this, LoginActivity.class);
         String temp =mDiskCacheUtil.getCache("tangyq");
         Log.e("welcome测试：",""+temp);
         if(temp.equals("NONE")){
             intent.putExtra("hasCache","false");
+            startActivity(intent);
         }else{
-            intent = new Intent(this, MainActivity.class);
+            if(getSettingFingerPrint()){
+                initFingerPrint();
+            }else {
+                intent = new Intent(this, MainActivity.class);
+                startActivity(intent);
+            }
             //intent.putExtra("hasCache","true");
-        }*/
-        Intent intent = new Intent(this,MainActivity.class);
-        startActivity(intent);
-        finish();
+        }
+      /*  Intent intent = new Intent(this,MainActivity.class);
+        finish();*/
+    }
+
+    private boolean getSettingFingerPrint() {
+
+        SharedPreferences pref = getSharedPreferences("fingerprint_data",MODE_PRIVATE);
+        System.out.println("指纹"+"："+pref.getBoolean("use_fingerprint",false));
+        return pref.getBoolean("use_fingerprint",false);//第二个参数为默认值
+    }
+
+    private void initFingerPrint() {
+        initFingerprintIdentify();
+        initFingerprintIdentifyCallBack();
+        dialog = new BottomDialog.Builder(WelcomeActivity.this)
+                .setTitle("请验证指纹!")
+                .setIcon(R.drawable.finger_print)
+                .setContent("将手指放置在设备指纹验证区域即可验证身份信息.")
+                .setPositiveText("OK")
+                .setNegativeText("取消")
+                .setPositiveBackgroundColorResource(R.color.colorPrimary)
+                //.setPositiveBackgroundColor(ContextCompat.getColor(this, R.color.colorPrimary)
+                .setPositiveTextColorResource(android.R.color.white)
+                //.setPositiveTextColor(ContextCompat.getColor(this, android.R.color.colorPrimary)
+                .setPositiveText("使用密码")
+                .onPositive(new BottomDialog.ButtonCallback() {
+                    @Override
+                    public void onClick(BottomDialog dialog) {
+                        Toast.makeText(WelcomeActivity.this,"请输入密码测试",Toast.LENGTH_SHORT).show();
+                        dialog.dismiss();
+                    }
+                })
+                .setCancelable(false)
+                .onNegative(new BottomDialog.ButtonCallback() {
+                    @Override
+                    public void onClick(@NonNull BottomDialog bottomDialog) {
+                        Log.e("BottomDialogs", "取消");
+                        bottomDialog.dismiss();
+                        onBackPressed();
+                    }
+                }).autoDismiss(false)
+                .show();
+    }
+
+    /*初始化指纹验证*/
+    private void initFingerprintIdentify() {
+        mFingerprintIdentify = new FingerprintIdentify(this);       // create object
+        mFingerprintIdentify.setSupportAndroidL(true);              // support android L
+        mFingerprintIdentify.init();
+        if(mFingerprintIdentify.isFingerprintEnable()&&mFingerprintIdentify.isHardwareEnable()){
+            if(mFingerprintIdentify.isRegisteredFingerprint()){
+
+                mFingerprintIdentify.startIdentify(5, new BaseFingerprint.IdentifyListener() {
+                    @Override
+                    public void onSucceed() {
+                        // succeed, release hardware automatically
+                        dialog.dismiss();
+                        startActivity(new Intent(WelcomeActivity.this,MainActivity.class));
+                        finish();
+                    }
+
+                    @Override
+                    public void onNotMatch(int availableTimes) {
+                        // not match, try again automatically
+                        Log.e("指纹","onNotMatch:"+availableTimes);
+                        new CookieBar.Builder(WelcomeActivity.this)
+                                .setTitle("指纹错误！！！")
+                                .setIcon(R.drawable.finger_error)
+                                .setBackgroundColor(R.color.color_login_button)
+                                .setMessage("还剩下"+availableTimes+"次机会")
+                                .setDuration(1000)
+                                .setLayoutGravity(Gravity.TOP)
+                                .show();
+                    }
+
+                    @Override
+                    public void onFailed(boolean isDeviceLocked) {
+                        // failed, release hardware automatically
+                        // isDeviceLocked: is device locked temporarily
+                        Log.e("指纹","onFailed:"+isDeviceLocked);
+                        if(isDeviceLocked){
+                            dialog.dismiss();
+                            onBackPressed();
+                        }
+                    }
+
+                    @Override
+                    public void onStartFailedByDeviceLocked() {
+                        // the first start failed because the device was locked temporarily
+                        Log.e("指纹","onStartFailedByDeviceLocked");
+
+                    }
+                });
+            }
+        }
+
+    }
+    /*指纹异常回调*/
+    private void initFingerprintIdentifyCallBack() {
+        mFingerprintIdentify.setExceptionListener(new BaseFingerprint.ExceptionListener() {
+            @Override
+            public void onCatchException(Throwable exception) {
+                Log.e("FingerprintIdentify", "Error__"+ Objects.requireNonNull(exception.getMessage()));
+            }
+        });
     }
 
     @Override

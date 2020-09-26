@@ -52,6 +52,7 @@ public class LoginActivity extends AppCompatActivity {
     ValueAnimator va;
     Context mContext;
 
+
     DiskLruCacheUtil diskLruCacheUtil;
 
     private DisplayMetrics dm;

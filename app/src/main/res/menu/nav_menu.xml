@@ -19,7 +19,7 @@
             android:title="func4"/>
         <item
             android:id="@+id/func5"
-            android:icon="@drawable/menu_right"
+            android:icon="@drawable/setting_icon"
             android:title="func5"/>
     </group>
 </menu>

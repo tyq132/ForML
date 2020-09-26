@@ -1,0 +1,20 @@
+{
+    "logs": [
+        {
+            "outputFile": "D:\\GoogleDownload\\ML-Application-master\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v14\\values-v14.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\Administrator\\.gradle\\caches\\transforms-2\\files-2.1\\0eb6adcc631e1b6d51992db670165383\\jetified-BottomDialogs-1.2.1\\res\\values-v14\\values-v14.xml",
+                    "from": {
+                        "startLines": "2,5",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,168",
+                        "endLines": "4,7",
+                        "endColumns": "12,12",
+                        "endOffsets": "163,286"
+                    }
+                }
+            ]
+        }
+    ]
+}
