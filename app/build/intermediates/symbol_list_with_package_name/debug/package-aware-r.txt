@@ -1554,9 +1554,15 @@ drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
 drawable ic_plus
 drawable ic_search
+drawable ic_span_1
+drawable ic_span_3
 drawable image_1
 drawable image_2
 drawable image_3
+drawable img1
+drawable img2
+drawable img3
+drawable img4
 drawable key_icon
 drawable kobe
 drawable list_0000
@@ -1928,6 +1934,8 @@ id ignore
 id ignoreRequest
 id image
 id imageView
+id image_big
+id image_small
 id inBack
 id inBounce
 id inCirc
@@ -1985,6 +1993,7 @@ id masked
 id media_actions
 id menu_fragments
 id menu_right
+id menu_switch_layout
 id message
 id middle
 id mini
@@ -2001,6 +2010,8 @@ id negative_btn
 id never
 id none
 id normal
+id note_root
+id note_toolbar
 id notification_background
 id notification_main_column
 id notification_main_column_container
@@ -2088,6 +2099,7 @@ id reverseSawtooth
 id right
 id right_icon
 id right_side
+id rv
 id save_non_transition_alpha
 id save_overlay_view
 id sawtooth
@@ -2176,6 +2188,8 @@ id time
 id title
 id titleDividerNoCustom
 id title_bar
+id title_big
+id title_small
 id title_template
 id title_tv
 id toggle
@@ -2193,6 +2207,7 @@ id transition_transform
 id triangle
 id tvContent
 id tvTitle
+id tv_info
 id tv_message
 id tv_title
 id unchecked
@@ -2286,6 +2301,7 @@ layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_done
 layout activity_login
+layout activity_note
 layout activity_welcome
 layout bmb
 layout bmb_ham_button
@@ -2317,7 +2333,9 @@ layout fragment_register
 layout fragment_wave
 layout header_layout
 layout image_frame
+layout item_big
 layout item_calendar
+layout item_small
 layout layout_colordialog
 layout layout_cookie
 layout layout_lines_edit_view
@@ -2365,6 +2383,7 @@ layout settings_activity
 layout support_simple_spinner_dropdown_item
 menu demo
 menu main_toolbar
+menu meun_item_layout
 menu nav_menu
 mipmap ic_help
 mipmap ic_info

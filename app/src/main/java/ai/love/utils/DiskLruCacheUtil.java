@@ -73,4 +73,8 @@ public class DiskLruCacheUtil {
             e.printStackTrace();
         }
     }
+
+    public long getSize(){
+        return mDiskCache.size();
+    }
 }

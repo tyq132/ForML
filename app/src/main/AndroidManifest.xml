@@ -21,8 +21,12 @@
         android:theme="@style/AppTheme"
         tools:targetApi="o">
         <activity
+            android:name=".activity.NoteActivity"
+            android:label="记录当下"
+            android:theme="@style/AppTheme" />
+        <activity
             android:name=".activity.SettingsActivity"
-            android:label="@string/title_activity_settings"></activity>
+            android:label="@string/title_activity_settings" />
         <activity
             android:name=".WelcomeActivity"
             android:configChanges="orientation|keyboardHidden|screenSize">
@@ -36,7 +40,7 @@
         <activity android:name=".activity.LoginActivity" />
         <activity
             android:name=".MainActivity"
-            android:theme="@style/Theme.Design.Light.NoActionBar"></activity>
+            android:theme="@style/Theme.Design.Light.NoActionBar" />
     </application>
 
 </manifest>

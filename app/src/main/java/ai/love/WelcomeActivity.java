@@ -153,9 +153,9 @@ public class WelcomeActivity extends AppCompatActivity{
 
     private void jumpToLogin() {
         Intent intent = new Intent(this, LoginActivity.class);
-        String temp =mDiskCacheUtil.getCache("tangyq");
-        Log.e("welcome测试：",""+temp);
-        if(temp.equals("NONE")){
+        Long size =mDiskCacheUtil.getSize();
+        Log.e("缓存大小：",""+size);
+        if(size==0L){
             intent.putExtra("hasCache","false");
             startActivity(intent);
         }else{

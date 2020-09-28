@@ -27,6 +27,7 @@ import com.nightonke.boommenu.BoomButtons.HamButton;
 import com.nightonke.boommenu.BoomMenuButton;
 import com.nightonke.boommenu.OnBoomListener;
 
+import ai.love.activity.NoteActivity;
 import ai.love.activity.SettingsActivity;
 import ai.love.fragments.QuestionFragment;
 
@@ -39,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
             R.drawable.butterfly,
     };
     public static FrameLayout frameLayout;
-    private Fragment currentFragment,nextFragment;
+    private Fragment currentFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -142,7 +143,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClicked(int index, final BoomButton boomButton) {
                 if(index == 0){
-
+                    startActivity(new Intent(MainActivity.this, NoteActivity.class));
                 }else if(index == 1){
 
                 }

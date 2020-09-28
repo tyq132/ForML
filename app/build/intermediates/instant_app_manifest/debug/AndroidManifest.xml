@@ -29,6 +29,10 @@
         android:testOnly="true"
         android:theme="@style/AppTheme" >
         <activity
+            android:name="ai.love.activity.NoteActivity"
+            android:label="记录当下"
+            android:theme="@style/AppTheme" />
+        <activity
             android:name="ai.love.activity.SettingsActivity"
             android:label="@string/title_activity_settings" />
         <activity
