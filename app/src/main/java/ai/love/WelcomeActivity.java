@@ -33,7 +33,7 @@ import java.util.Objects;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import ai.love.activity.LoginActivity;
+import ai.love.utils.ClickListenerUtil;
 import ai.love.utils.DiskLruCacheUtil;
 import ai.love.utils.StatusBarUtil;
 import ai.love.view.FViewView;
@@ -132,9 +132,9 @@ public class WelcomeActivity extends AppCompatActivity{
 
             }
         });
-        btn.setOnClickListener(new View.OnClickListener() {
+        btn.setOnClickListener(new ClickListenerUtil() {
             @Override
-            public void onClick(View v) {
+            public void onMultiClick(View v) {
                 btn.setClickable(false);
                 /*取消定时跳转*/
                 timer.cancel();
@@ -152,7 +152,7 @@ public class WelcomeActivity extends AppCompatActivity{
     }
 
     private void jumpToLogin() {
-        Intent intent = new Intent(this, LoginActivity.class);
+        /*Intent intent = new Intent(this, LoginActivity.class);
         Long size =mDiskCacheUtil.getSize();
         Log.e("缓存大小：",""+size);
         if(size==0L){
@@ -166,9 +166,10 @@ public class WelcomeActivity extends AppCompatActivity{
                 startActivity(intent);
             }
             //intent.putExtra("hasCache","true");
-        }
-      /*  Intent intent = new Intent(this,MainActivity.class);
-        finish();*/
+        }*/
+        Intent intent = new Intent(this,MainActivity.class);
+        startActivity(intent);
+        finish();
     }
 
     private boolean getSettingFingerPrint() {

@@ -30,6 +30,7 @@ import com.nightonke.boommenu.OnBoomListener;
 import ai.love.activity.NoteActivity;
 import ai.love.activity.SettingsActivity;
 import ai.love.fragments.QuestionFragment;
+import ai.love.utils.ClickListenerUtil;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -78,10 +79,10 @@ public class MainActivity extends AppCompatActivity {
         final DrawerLayout drawerLayout = findViewById(R.id.draw_layout);
         NavigationView nav = findViewById(R.id.navView);
         setSupportActionBar(toolbar);
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+        toolbar.setNavigationOnClickListener(new ClickListenerUtil() {
             @SuppressLint("WrongConstant")
             @Override
-            public void onClick(View v) {
+            public void onMultiClick(View v) {
                 drawerLayout.openDrawer(Gravity.START);
             }
         });

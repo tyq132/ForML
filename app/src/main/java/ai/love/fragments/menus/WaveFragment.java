@@ -14,6 +14,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import ai.love.R;
+import ai.love.utils.ClickListenerUtil;
 import ai.love.view.WaveView;
 
 /**
@@ -37,9 +38,9 @@ public class WaveFragment extends Fragment {
         ship = view.findViewById(R.id.ship);
         bottle = view.findViewById(R.id.bottle);
 
-        icon1.setOnClickListener(new View.OnClickListener() {
+        icon1.setOnClickListener(new ClickListenerUtil() {
             @Override
-            public void onClick(View v) {
+            public void onMultiClick(View v) {
                 Log.e("爱神的箭后方可：","");
             }
         });

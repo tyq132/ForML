@@ -58,7 +58,7 @@
             android:layout_gravity="start"
             app:headerLayout="@layout/header_layout"
             app:insetForeground="@android:color/transparent"
-            app:menu="@menu/nav_menu"/>
+            app:menu="@menu/menu_nav_item"/>
     </androidx.drawerlayout.widget.DrawerLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

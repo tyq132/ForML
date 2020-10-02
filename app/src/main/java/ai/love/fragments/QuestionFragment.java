@@ -19,6 +19,7 @@ import com.classichu.lineseditview.LinesEditView;
 
 import ai.love.R;
 import ai.love.activity.DoneActivity;
+import ai.love.utils.ClickListenerUtil;
 import cn.refactor.lib.colordialog.PromptDialog;
 
 
@@ -36,11 +37,13 @@ public class QuestionFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_question, container, false);
         letter = v.findViewById(R.id.edit_letter);
-        lover = v.findViewById(R.id.edit_lover);
         button = v.findViewById(R.id.btn_commit);
+
         initButtonClickLinstener(getContext());
         return v;
     }
+
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -48,9 +51,9 @@ public class QuestionFragment extends Fragment {
 
 
     private void initButtonClickLinstener(final Context context) {
-        button.setOnClickListener(new View.OnClickListener() {
+        button.setOnClickListener(new ClickListenerUtil() {
             @Override
-            public void onClick(View v) {
+            public void onMultiClick(View v) {
                 String str1 = letter.getContentText();
                 String str2 = lover.getText().toString();
                 String level = null;

@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'org.greenrobot.greendao' // apply plugin
 
 android {
     compileSdkVersion 29
@@ -35,15 +36,21 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.0.1'
     implementation 'com.liuguangqiang.cookie:CookieBar:1.0.1'
     implementation 'com.nightonke:boommenu:2.1.1'
+    implementation 'org.greenrobot:greendao:3.3.0' // add library
     implementation 'com.github.mzule.fantasyslide:library:1.0.5'
     implementation "androidx.drawerlayout:drawerlayout:1.1.1"
     implementation 'de.hdodenhof:circleimageview:2.1.0'
     implementation 'com.kevalpatel2106:fingerprint-dialog-compat:1.0'
     implementation 'com.wei.android.lib:fingerprintidentify:1.2.6'
     implementation 'com.github.javiersantos:BottomDialogs:1.2.1'
-
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'androidx.navigation:navigation-fragment:2.3.0'
     implementation 'androidx.navigation:navigation-ui:2.3.0'
-    implementation 'androidx.preference:preference:1.1.0'
+    implementation 'androidx.preference:preference:1.1.1'
+    implementation 'com.github.irshulx:laser-native-editor:3.0.3'
+    implementation 'com.github.duanhong169:colorpicker:1.1.1'
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.google.android.material:material:1.2.1'
+    implementation 'androidx.coordinatorlayout:coordinatorlayout:1.1.0'
+
 }

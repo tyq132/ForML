@@ -1,9 +1,11 @@
 package ai.love.activity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -13,6 +15,8 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -20,17 +24,26 @@ import java.util.Objects;
 import ai.love.R;
 import ai.love.adapter.ItemAdapter;
 import ai.love.model.Item;
+import ai.love.utils.ClickListenerUtil;
 
 import static ai.love.adapter.ItemAdapter.SPAN_COUNT_ONE;
 import static ai.love.adapter.ItemAdapter.SPAN_COUNT_THREE;
 
 public class NoteActivity extends AppCompatActivity {
 
+    private static int[] imageResources = new int[]{
+            R.drawable.bat,
+            R.drawable.bear,
+            R.drawable.bee,
+            R.drawable.butterfly,
+    };
+
     private RecyclerView recyclerView;
     private ItemAdapter itemAdapter;
     private GridLayoutManager gridLayoutManager;
     private List<Item> items;
     private Toolbar toolbar;
+    private FloatingActionButton edit_btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +53,7 @@ public class NoteActivity extends AppCompatActivity {
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
         initItemsData();
         initToolBar();
+        initEditTtb();
 
 
         gridLayoutManager = new GridLayoutManager(this, SPAN_COUNT_ONE);
@@ -49,6 +63,17 @@ public class NoteActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(gridLayoutManager);
         initItemClickListener();
 
+    }
+
+    private void initEditTtb() {
+       edit_btn = findViewById(R.id.edit_btn);
+
+       edit_btn.setOnClickListener(new ClickListenerUtil() {
+           @Override
+           public void onMultiClick(View v) {
+                startActivity(new Intent(NoteActivity.this, EditingActivity.class));
+           }
+       });
     }
 
     private void initItemClickListener() {
@@ -66,6 +91,7 @@ public class NoteActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         toolbar.setBackgroundColor(Color.RED);
+        toolbar.setTitleTextColor(Color.BLACK);
     }
 
     private void initItemsData() {
@@ -78,16 +104,21 @@ public class NoteActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.meun_item_layout, menu);
+        getMenuInflater().inflate(R.menu.meun_note_layout, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == R.id.menu_switch_layout) {
-            switchLayout();
-            switchIcon(item);
-            return true;
+        switch(item.getItemId()){
+            case android.R.id.home:
+                onBackPressed();
+                break;
+            case R.id.menu_switch_layout:
+                switchLayout();
+                switchIcon(item);
+            default:
+                return true;
         }
         return super.onOptionsItemSelected(item);
     }

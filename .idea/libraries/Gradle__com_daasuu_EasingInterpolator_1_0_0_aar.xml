@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: com.daasuu:EasingInterpolator:1.0.0@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/50e159592a52e6c764138739c6f6b9cc/jetified-EasingInterpolator-1.0.0/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/50e159592a52e6c764138739c6f6b9cc/jetified-EasingInterpolator-1.0.0/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a3c8ec14473ee387e6ae930c083ce440/jetified-EasingInterpolator-1.0.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a3c8ec14473ee387e6ae930c083ce440/jetified-EasingInterpolator-1.0.0/res" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.daasuu/EasingInterpolator/1.0.0/d4ab98edd67a27cf8098aad45c925b1d86d882d5/EasingInterpolator-1.0.0-javadoc.jar!/" />

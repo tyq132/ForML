@@ -31,81 +31,90 @@
 17    <uses-permission android:name="com.samsung.android.providers.context.permission.WRITE_USE_APP_FEATURE_SURVEY" />
 17-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:12:5-117
 17-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:12:22-114
-18
-19    <application
-19-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:14:5-44:19
-20        android:allowBackup="true"
-20-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:15:9-35
-21        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-21-->[androidx.core:core:1.3.1] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\ae3468b444d41a56f261ecbb8448fe17\core-1.3.1\AndroidManifest.xml:24:18-86
-22        android:debuggable="true"
-23        android:icon="@drawable/myapp_icon"
-23-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:16:9-44
-24        android:label="@string/app_name"
-24-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:17:9-41
-25        android:maxAspectRatio="2.4"
-25-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:18:9-37
-26        android:resizeableActivity="true"
-26-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:19:9-42
-27        android:supportsRtl="true"
-27-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:20:9-35
-28        android:testOnly="true"
-29        android:theme="@style/AppTheme" >
-29-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:21:9-40
-30        <activity
-30-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:23:9-26:47
-31            android:name="ai.love.activity.NoteActivity"
-31-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:24:13-50
-32            android:label="记录当下"
-32-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:25:13-33
-33            android:theme="@style/AppTheme" />
-33-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:26:13-44
+18    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+18-->[com.github.irshulx:laser-native-editor:3.0.3] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\2ae8d9453a136c90655a4b89cdf8d0d4\jetified-laser-native-editor-3.0.3\AndroidManifest.xml:11:5-81
+18-->[com.github.irshulx:laser-native-editor:3.0.3] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\2ae8d9453a136c90655a4b89cdf8d0d4\jetified-laser-native-editor-3.0.3\AndroidManifest.xml:11:22-78
+19
+20    <application
+20-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:14:5-47:19
+21        android:allowBackup="true"
+21-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:15:9-35
+22        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+22-->[androidx.core:core:1.3.1] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\3b8225f248a9c0010b2aae96eee5bb07\core-1.3.1\AndroidManifest.xml:24:18-86
+23        android:debuggable="true"
+24        android:icon="@drawable/myapp_icon"
+24-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:16:9-44
+25        android:label="@string/app_name"
+25-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:17:9-41
+26        android:maxAspectRatio="2.4"
+26-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:18:9-37
+27        android:resizeableActivity="true"
+27-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:19:9-42
+28        android:supportsRtl="true"
+28-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:20:9-35
+29        android:testOnly="true"
+30        android:theme="@style/AppTheme" >
+30-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:21:9-40
+31        <activity
+31-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:23:9-25:36
+32            android:name="ai.love.activity.EditingActivity"
+32-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:24:13-53
+33            android:label="新建记事本" />
+33-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:25:13-34
 34        <activity
-34-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:27:9-29:63
-35            android:name="ai.love.activity.SettingsActivity"
-35-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:28:13-54
-36            android:label="@string/title_activity_settings" />
-36-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:29:13-60
-37        <activity
-37-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:30:9-38:20
-38            android:name="ai.love.WelcomeActivity"
-38-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:31:13-44
-39            android:configChanges="orientation|keyboardHidden|screenSize" >
-39-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:32:13-74
-40            <intent-filter>
-40-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:33:13-37:29
-41                <action android:name="android.intent.action.MAIN" />
-41-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:34:17-69
-41-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:34:25-66
-42
-43                <category android:name="android.intent.category.LAUNCHER" />
-43-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:36:17-77
-43-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:36:27-74
-44            </intent-filter>
-45        </activity>
-46        <activity android:name="ai.love.activity.DoneActivity" />
-46-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:39:9-59
-46-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:39:19-56
-47        <activity android:name="ai.love.activity.LoginActivity" />
-47-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:40:9-60
-47-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:40:19-57
-48        <activity
-48-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:41:9-43:69
-49            android:name="ai.love.MainActivity"
-49-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:42:13-41
-50            android:theme="@style/Theme.Design.Light.NoActionBar" />
-50-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:43:13-66
-51
-52        <provider
-52-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\3af32d140be760521703c9060e27c1ae\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:25:9-29:43
-53            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
-53-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\3af32d140be760521703c9060e27c1ae\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:26:13-79
-54            android:authorities="ml.application.lifecycle-process"
-54-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\3af32d140be760521703c9060e27c1ae\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:27:13-69
-55            android:exported="false"
-55-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\3af32d140be760521703c9060e27c1ae\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:28:13-37
-56            android:multiprocess="true" />
-56-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\3af32d140be760521703c9060e27c1ae\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:29:13-40
-57    </application>
-58
-59</manifest>
+34-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:26:9-29:47
+35            android:name="ai.love.activity.NoteActivity"
+35-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:27:13-50
+36            android:label="记录当下"
+36-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:28:13-33
+37            android:theme="@style/AppTheme" />
+37-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:29:13-44
+38        <activity
+38-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:30:9-32:63
+39            android:name="ai.love.activity.SettingsActivity"
+39-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:31:13-54
+40            android:label="@string/title_activity_settings" />
+40-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:32:13-60
+41        <activity
+41-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:33:9-41:20
+42            android:name="ai.love.WelcomeActivity"
+42-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:34:13-44
+43            android:configChanges="orientation|keyboardHidden|screenSize" >
+43-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:35:13-74
+44            <intent-filter>
+44-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:36:13-40:29
+45                <action android:name="android.intent.action.MAIN" />
+45-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:37:17-69
+45-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:37:25-66
+46
+47                <category android:name="android.intent.category.LAUNCHER" />
+47-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:39:17-77
+47-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:39:27-74
+48            </intent-filter>
+49        </activity>
+50        <activity android:name="ai.love.activity.DoneActivity" />
+50-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:42:9-59
+50-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:42:19-56
+51        <activity android:name="ai.love.activity.LoginActivity" />
+51-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:43:9-60
+51-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:43:19-57
+52        <activity
+52-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:44:9-46:69
+53            android:name="ai.love.MainActivity"
+53-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:45:13-41
+54            android:theme="@style/Theme.Design.Light.NoActionBar" />
+54-->D:\GoogleDownload\ML-Application-master\app\src\main\AndroidManifest.xml:46:13-66
+55
+56        <provider
+56-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\ef191d65c97b1cf64a579be059a76e27\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:25:9-29:43
+57            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
+57-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\ef191d65c97b1cf64a579be059a76e27\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:26:13-79
+58            android:authorities="ml.application.lifecycle-process"
+58-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\ef191d65c97b1cf64a579be059a76e27\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:27:13-69
+59            android:exported="false"
+59-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\ef191d65c97b1cf64a579be059a76e27\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:28:13-37
+60            android:multiprocess="true" />
+60-->[androidx.lifecycle:lifecycle-process:2.2.0] C:\Users\Administrator\.gradle\caches\transforms-2\files-2.1\ef191d65c97b1cf64a579be059a76e27\jetified-lifecycle-process-2.2.0\AndroidManifest.xml:29:13-40
+61    </application>
+62
+63</manifest>

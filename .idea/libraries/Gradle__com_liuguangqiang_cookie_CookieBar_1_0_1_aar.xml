@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: com.liuguangqiang.cookie:CookieBar:1.0.1@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/1f5a6fffad210221ea4d38f2c8ab2895/jetified-CookieBar-1.0.1/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/1f5a6fffad210221ea4d38f2c8ab2895/jetified-CookieBar-1.0.1/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/02b5a9984c99d06708ce55972327daaa/jetified-CookieBar-1.0.1/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/02b5a9984c99d06708ce55972327daaa/jetified-CookieBar-1.0.1/res" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.liuguangqiang.cookie/CookieBar/1.0.1/93135222a384aa353cc81100418469fd11d6662b/CookieBar-1.0.1-javadoc.jar!/" />

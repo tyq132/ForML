@@ -15,6 +15,7 @@
     <uses-permission android:name="android.permission.USE_FINGERPRINT" />
     <uses-permission android:name="com.fingerprints.service.ACCESS_FINGERPRINT_MANAGER" />
     <uses-permission android:name="com.samsung.android.providers.context.permission.WRITE_USE_APP_FEATURE_SURVEY" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -27,6 +28,9 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/AppTheme" >
+        <activity
+            android:name="ai.love.activity.EditingActivity"
+            android:label="新建记事本" />
         <activity
             android:name="ai.love.activity.NoteActivity"
             android:label="记录当下"

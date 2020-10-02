@@ -13,6 +13,7 @@ import java.util.List;
 
 import ai.love.R;
 import ai.love.model.Item;
+import ai.love.utils.ClickListenerUtil;
 
 /**
  * Created by gjz on 16/01/2017.
@@ -90,9 +91,9 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
                 iv = (ImageView) itemView.findViewById(R.id.image_small);
                 title = (TextView) itemView.findViewById(R.id.title_small);
             }
-            itemView.setOnClickListener(new View.OnClickListener() {
+            itemView.setOnClickListener(new ClickListenerUtil() {
                 @Override
-                public void onClick(View view) {
+                public void onMultiClick(View view) {
                     if (listener != null) {
                         int position = getAdapterPosition();
                         //确保position值有效

@@ -1,11 +1,11 @@
 <component name="libraryTable">
   <library name="Gradle: com.wei.android.lib:fingerprintidentify:1.2.6@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/6976ed5eb5ab552c90206d7f149f27ca/jetified-fingerprintidentify-1.2.6/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/6976ed5eb5ab552c90206d7f149f27ca/jetified-fingerprintidentify-1.2.6/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/6976ed5eb5ab552c90206d7f149f27ca/jetified-fingerprintidentify-1.2.6/jars/libs/MeiZu_Fingerprint.jar!/" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/6976ed5eb5ab552c90206d7f149f27ca/jetified-fingerprintidentify-1.2.6/jars/libs/Samsung_Fingerprint_Pass-v1.2.6.jar!/" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/6976ed5eb5ab552c90206d7f149f27ca/jetified-fingerprintidentify-1.2.6/jars/libs/Samsung_Fingerprint_Sdk-v1.0.0.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/ee0d7b80fde60dc0b4f548dc74feb5ff/jetified-fingerprintidentify-1.2.6/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/ee0d7b80fde60dc0b4f548dc74feb5ff/jetified-fingerprintidentify-1.2.6/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/ee0d7b80fde60dc0b4f548dc74feb5ff/jetified-fingerprintidentify-1.2.6/jars/libs/MeiZu_Fingerprint.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/ee0d7b80fde60dc0b4f548dc74feb5ff/jetified-fingerprintidentify-1.2.6/jars/libs/Samsung_Fingerprint_Pass-v1.2.6.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/ee0d7b80fde60dc0b4f548dc74feb5ff/jetified-fingerprintidentify-1.2.6/jars/libs/Samsung_Fingerprint_Sdk-v1.0.0.jar!/" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.wei.android.lib/fingerprintidentify/1.2.6/45cbfca0e06f45bcc03286d111233eba822d004e/fingerprintidentify-1.2.6-javadoc.jar!/" />

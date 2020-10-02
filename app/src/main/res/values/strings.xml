@@ -159,4 +159,6 @@
     <string name="fingerPrint_login">启用指纹验证登录</string>
     <string name="fingerprint_failure_not_lock">验证失败不锁定应用</string>
     <string name="fingerprint_falure_locked">验证失败锁定应用</string>
+    <string name="save">保存</string>
+    <string name="page_theme">纸张主题</string>
 </resources>

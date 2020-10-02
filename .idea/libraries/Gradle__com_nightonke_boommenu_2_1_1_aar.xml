@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: com.nightonke:boommenu:2.1.1@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/0d14d26f541767c2dd6af1bfbfde119d/boommenu-2.1.1/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/0d14d26f541767c2dd6af1bfbfde119d/boommenu-2.1.1/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/bc272b5a1a58dd95b485bf4ffb44c7cb/jetified-boommenu-2.1.1/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/bc272b5a1a58dd95b485bf4ffb44c7cb/jetified-boommenu-2.1.1/res" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.nightonke/boommenu/2.1.1/b4d9080108356f6828ee7a234348572833c4c211/boommenu-2.1.1-javadoc.jar!/" />

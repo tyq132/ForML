@@ -36,6 +36,7 @@ import ai.love.MainActivity;
 import ai.love.R;
 import ai.love.fragments.LoginFragment;
 import ai.love.fragments.RegisterFragment;
+import ai.love.utils.ClickListenerUtil;
 import ai.love.utils.DiskLruCacheUtil;
 import ai.love.utils.StatusBarUtil;
 
@@ -132,9 +133,9 @@ public class LoginActivity extends AppCompatActivity {
     /*初始化登陆、注册lablel*/
     private void initRegisterLoginListener() {
         if (btn_goto_register != null) {
-            btn_goto_register.setOnClickListener(new View.OnClickListener() {
+            btn_goto_register.setOnClickListener(new ClickListenerUtil() {
                 @Override
-                public void onClick(View v) {
+                public void onMultiClick(View v) {
                     /*设置底部登陆注册切换效果*/
                     label_signup.setVisibility(View.GONE);
                     label_signup.setAlpha(0);
@@ -155,9 +156,9 @@ public class LoginActivity extends AppCompatActivity {
             });
         }
         if (btn_goto_Login != null) {
-            btn_goto_Login.setOnClickListener(new View.OnClickListener() {
+            btn_goto_Login.setOnClickListener(new ClickListenerUtil() {
                 @Override
-                public void onClick(View v) {
+                public void onMultiClick(View v) {
                     /*设置底部登陆注册切换效果*/
                     label_login.setVisibility(View.GONE);
                     label_login.setAlpha(0);
@@ -221,9 +222,9 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
-        button_login.setOnClickListener(new View.OnClickListener() {
+        button_login.setOnClickListener(new ClickListenerUtil() {
             @Override
-            public void onClick(View p1) {
+            public void onMultiClick(View p1) {
 
                 if ((int) button_login.getTag() == 1) {
                     return;
@@ -242,9 +243,9 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         });
-        button_register.setOnClickListener(new View.OnClickListener() {
+        button_register.setOnClickListener(new ClickListenerUtil() {
             @Override
-            public void onClick(View v) {
+            public void onMultiClick(View v) {
                 userNmae = RegisterFragment.userName;
                 passward = RegisterFragment.passward;
                 key = RegisterFragment.key;
