@@ -1915,6 +1915,7 @@ drawable button_login
 drawable button_signup
 drawable cat
 drawable circle
+drawable clear_icon
 drawable commit
 drawable coupon
 drawable deer
@@ -1938,6 +1939,8 @@ drawable finger_error
 drawable finger_print
 drawable finger_print_icon_background
 drawable fingerprint_compat_dialog_background
+drawable font_bg_icon
+drawable font_color_icon
 drawable friends
 drawable haimian_baby
 drawable header_01
@@ -2036,15 +2039,20 @@ drawable img1
 drawable img2
 drawable img3
 drawable img4
+drawable img_icon
 drawable img_link
 drawable img_link_20px
 drawable img_link_resized
 drawable invisible_edit_text
 drawable key_icon
 drawable kobe
+drawable label_icon
+drawable link_icon
 drawable list_0000
 drawable list_0001
 drawable list_0002
+drawable list_123_icon
+drawable list_icon
 drawable login_bg
 drawable login_logo
 drawable long_click_effect
@@ -2415,7 +2423,6 @@ id edit_letter
 id edit_query
 id editing_toolbar
 id editor
-id editor1
 id end
 id end_padder
 id enterAlways
@@ -2545,6 +2552,7 @@ id map
 id masked
 id media_actions
 id menu_fragments
+id menu_label_btn
 id menu_right
 id menu_save_btn
 id menu_switch_layout
@@ -2789,6 +2797,7 @@ id title
 id titleDividerNoCustom
 id title_bar
 id title_big
+id title_edit
 id title_small
 id title_template
 id title_tv
@@ -2939,6 +2948,7 @@ layout design_navigation_menu
 layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
+layout editing_layout
 layout editor_toolbar_linearlayout_horizontal
 layout expand_button
 layout fingerprint_compat_dialog
@@ -3129,9 +3139,11 @@ string hello_blank_fragment
 string hello_world
 string hide_bottom_view_on_scroll_behavior
 string icon_content_description
+string input_title
 string invalid_password
 string invalid_username
 string item_view_role_description
+string label
 string large_text
 string library_bottomdialogs_author
 string library_bottomdialogs_authorWebsite

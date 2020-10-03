@@ -76,38 +76,10 @@ public class EditingActivity extends AppCompatActivity {
             }
         });
 
-        findViewById(R.id.action_bold).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                editor.updateTextStyle(EditorTextStyle.BOLD);
-            }
-        });
-
-        findViewById(R.id.action_Italic).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                editor.updateTextStyle(EditorTextStyle.ITALIC);
-            }
-        });
-
-        findViewById(R.id.action_indent).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                editor.updateTextStyle(EditorTextStyle.INDENT);
-            }
-        });
-
         findViewById(R.id.action_blockquote).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 editor.updateTextStyle(EditorTextStyle.BLOCKQUOTE);
-            }
-        });
-
-        findViewById(R.id.action_outdent).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                editor.updateTextStyle(EditorTextStyle.OUTDENT);
             }
         });
 
@@ -124,14 +96,6 @@ public class EditingActivity extends AppCompatActivity {
                 editor.insertList(true);
             }
         });
-
-        findViewById(R.id.action_hr).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                editor.insertDivider();
-            }
-        });
-
 
         findViewById(R.id.action_color).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -290,6 +254,7 @@ public class EditingActivity extends AppCompatActivity {
         return String.format(Locale.getDefault(), "#%02X%02X%02X", r, g, b);
     }
 
+    /*选择照片*/
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -367,10 +332,13 @@ public class EditingActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch(item.getItemId()){
             case R.id.menu_save_btn:
-               saveNote();
+                saveNote();
                 break;
             case R.id.menu_theme_btn:
-
+                changeTheme();
+                break;
+            case R.id.menu_label_btn:
+                setLabel();
                 break;
             case android.R.id.home:
                 onBackPressed();
@@ -388,4 +356,11 @@ public class EditingActivity extends AppCompatActivity {
             controlor.insertOrReplace(enity);
         }
     }
+
+    private void setLabel() {
+    }
+
+    private void changeTheme() {
+    }
+
 }

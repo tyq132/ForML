@@ -161,4 +161,6 @@
     <string name="fingerprint_falure_locked">验证失败锁定应用</string>
     <string name="save">保存</string>
     <string name="page_theme">纸张主题</string>
+    <string name="label">添加分类</string>
+    <string name="input_title">输入标题</string>
 </resources>

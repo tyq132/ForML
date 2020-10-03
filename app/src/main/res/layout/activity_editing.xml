@@ -22,15 +22,37 @@
         android:layout_marginTop="?attr/actionBarSize"
         android:layout_height="match_parent">
         <!-- Begin Editor toolbar -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:padding="5dp"
+            android:background="@color/color_type_info"
+            android:gravity="center"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="34dp"
+                android:textAlignment="center"
+                android:text="标题:"/>
+            <EditText
+                android:id="@+id/title_edit"
+                android:hint="@string/input_title"
+                android:textSize="24dp"
+                android:backgroundTint="@color/color_primary_men"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
 
-        <HorizontalScrollView android:id="@+id/tools"
+        <HorizontalScrollView
+            android:id="@+id/tools"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#e6e6e6"
             android:layout_alignParentBottom="true"
             android:scrollbars="none">
 
-            <include layout="@layout/editor_toolbar_linearlayout_horizontal" />
+            <include layout="@layout/editing_layout" />
 
 
         </HorizontalScrollView>
@@ -38,19 +60,20 @@
         <ScrollView
             android:layout_width="match_parent"
             android:scrollbars="vertical"
-            android:layout_marginBottom="40dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginBottom="60dp"
             android:layout_alignParentTop="true"
-            android:layout_height="match_parent"
-            >
+            android:layout_height="match_parent">
+
             <com.github.irshulx.Editor
                 android:layout_width="match_parent"
                 android:id="@+id/editor"
                 app:render_type="Editor"
-                app:placeholder="Start writing here..."
+                app:placeholder="写点东西吧..."
                 android:paddingTop="10dp"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:paddingBottom="100dp">
             </com.github.irshulx.Editor>
         </ScrollView>

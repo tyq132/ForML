@@ -104,6 +104,7 @@
     <orderEntry type="library" name="Gradle: com.github.mzule.fantasyslide:library:1.0.5@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.github.javiersantos:BottomDialogs:1.2.1@aar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.preference:preference:1.1.1@aar" level="project" />
+    <orderEntry type="library" name="Gradle: me.wangyuwei:FlipShare:1.0.2@aar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.navigation:navigation-ui:2.3.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.google.android.material:material:1.2.1@aar" level="project" />
     <orderEntry type="library" name="Gradle: com.github.duanhong169:checkerboarddrawable:1.0.2@aar" level="project" />
