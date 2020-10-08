@@ -18,14 +18,16 @@ public class NoteEnity {
     private String content;
     private Date time;
     private String lable;
-    @Generated(hash = 590651981)
-    public NoteEnity(Long Id, String title, String content, Date time,
-            String lable) {
+    private String imgResUrl;
+    @Generated(hash = 1958126189)
+    public NoteEnity(Long Id, String title, String content, Date time, String lable,
+            String imgResUrl) {
         this.Id = Id;
         this.title = title;
         this.content = content;
         this.time = time;
         this.lable = lable;
+        this.imgResUrl = imgResUrl;
     }
     @Generated(hash = 1928580739)
     public NoteEnity() {
@@ -59,5 +61,11 @@ public class NoteEnity {
     }
     public void setLable(String lable) {
         this.lable = lable;
+    }
+    public String getImgResUrl() {
+        return this.imgResUrl;
+    }
+    public void setImgResUrl(String imgResUrl) {
+        this.imgResUrl = imgResUrl;
     }
 }

@@ -2,8 +2,7 @@ package ai.love.activity;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
@@ -12,46 +11,59 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.text.Editable;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.bumptech.glide.Glide;
 import com.github.irshulx.Editor;
 import com.github.irshulx.EditorListener;
 import com.github.irshulx.models.EditorTextStyle;
+import com.yuyh.library.imgsel.ISNav;
+import com.yuyh.library.imgsel.common.ImageLoader;
+import com.yuyh.library.imgsel.config.ISListConfig;
 
 import java.io.IOException;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
 
 import ai.love.R;
-import ai.love.controllor.NoteEnityControlor;
+import ai.love.controllor.NoteEnityControllor;
 import ai.love.model.NoteEnity;
 import top.defaults.colorpicker.ColorPickerPopup;
 
 public class EditingActivity extends AppCompatActivity {
+    private static final int REQUEST_CODE = 1001;
     private Toolbar toolbar;
     private NoteEnity enity;
-    private NoteEnityControlor controlor;
+    private NoteEnityControllor controlor;
+    private ImageView note_icon;
+    private EditText title;
 
-    Editor editor;
+    private Editor editor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_editing);
         enity = new NoteEnity();
-        controlor = NoteEnityControlor.getInstance(this);
+        note_icon = findViewById(R.id.note_icon);
+        title = findViewById(R.id.title_edit);
+        controlor = NoteEnityControllor.getInstance(this);
         initEditor();
         initToolbar();
         setUpEditor();
+        initNoteIconClick();
     }
 
     private void setUpEditor() {
@@ -197,7 +209,7 @@ public class EditingActivity extends AppCompatActivity {
 //        startActivity(intent);
 
 
-       /* *//**
+        /* *//**
          * Rendering html
          *//*
         //render();
@@ -238,57 +250,11 @@ public class EditingActivity extends AppCompatActivity {
          */
     }
 
-    /*private View insertMacro() {
-        View view = getLayoutInflater().inflate(R.layout.layout_authored_by, null);
-        Map<String, Object> map = new HashMap<>();
-        map.put("author-name", "Alex Wong");
-        map.put("date","12 July 2018");
-        editor.insertMacro("author-tag",view, map);
-        return view;
-    }*/
-
     private String colorHex(int color) {
         int r = Color.red(color);
         int g = Color.green(color);
         int b = Color.blue(color);
         return String.format(Locale.getDefault(), "#%02X%02X%02X", r, g, b);
-    }
-
-    /*选择照片*/
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == editor.PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK && data != null && data.getData() != null) {
-            Uri uri = data.getData();
-            try {
-                Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
-                // Log.d(TAG, String.valueOf(bitmap));
-                editor.insertImage(bitmap);
-            } catch (IOException e) {
-                Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
-                e.printStackTrace();
-            }
-        } else if (resultCode == Activity.RESULT_CANCELED) {
-            //Write your code if there's no result
-            Toast.makeText(getApplicationContext(), "Cancelled", Toast.LENGTH_SHORT).show();
-            // editor.RestoreState();
-        }
-    }
-
-    @Override
-    public void onBackPressed() {
-        new AlertDialog.Builder(this)
-                .setTitle("Exit Editor?")
-                .setMessage("Are you sure you want to exit the editor?")
-                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        finish();
-                    }
-
-                })
-                .setNegativeButton("No", null)
-                .show();
     }
 
     public Map<Integer, String> getHeadingTypeface() {
@@ -319,18 +285,96 @@ public class EditingActivity extends AppCompatActivity {
     }
 
     private void initEditor() {
-        editor =  findViewById(R.id.editor);
+        editor = findViewById(R.id.editor);
+        long id = getIntent().getLongExtra("Id", -1L);
+        Log.e("Id TEST", Long.toString(id));
+        if (id != -1L){
+            enity = controlor.searchById(id);
+            Log.e("Enity",enity.getImgResUrl());
+            Glide.with(this).load(enity.getImgResUrl()).into(note_icon);
+            title.setText(enity.getTitle());
+            editor.render(enity.getContent());
+            editor.setFocusableInTouchMode(false);
+        }
         editor.setBackgroundResource(R.drawable.question_bg);
+    }
+
+    private void initNoteIconClick() {
+        note_icon = findViewById(R.id.note_icon);
+        note_icon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ISNav isNav = ISNav.getInstance();
+                isNav.init(new ImageLoader() {
+                    @Override
+                    public void displayImage(Context context, String path, ImageView imageView) {
+                        Glide.with(context).load(path).into(imageView);
+                    }
+                });
+                // 自由配置选项
+                ISListConfig config = new ISListConfig.Builder()
+                        // 是否多选, 默认true
+                        .multiSelect(false)
+                        // 是否记住上次选中记录, 仅当multiSelect为true的时候配置，默认为true
+                        .rememberSelected(false)
+                        // “确定”按钮背景色
+                        .btnBgColor(Color.GRAY)
+                        // “确定”按钮文字颜色
+                        .btnTextColor(Color.BLUE)
+                        // 使用沉浸式状态栏
+                        .statusBarColor(Color.parseColor("#3F51B5"))
+                        // 返回图标ResId
+                        .backResId(R.drawable.ic_back)
+                        // 标题
+                        .title("图片")
+                        // 标题文字颜色
+                        .titleColor(Color.WHITE)
+                        // TitleBar背景色
+                        .titleBgColor(Color.parseColor("#3F51B5"))
+                        // 裁剪大小。needCrop为true的时候配置
+                        .cropSize(1, 1, 200, 200)
+                        .needCrop(true)
+                        // 第一个是否显示相机，默认true
+                        .needCamera(false)
+                        // 最大选择图片数量，默认9
+                        .maxNum(9)
+                        .build();
+
+// 跳转到图片选择器
+                isNav.toListActivity(this, config, REQUEST_CODE);
+            }
+        });
+    }
+    /*完成选择照片回调*/
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == editor.PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK && data != null && data.getData() != null) {
+            Uri uri = data.getData();
+            try {
+                Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
+                // Log.d(TAG, String.valueOf(bitmap));
+                editor.insertImage(bitmap);
+            } catch (IOException e) {
+                Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
+                e.printStackTrace();
+            }
+        } else if (resultCode == REQUEST_CODE) {
+            assert data != null;
+            String url = data.getStringExtra("extra.file_path");
+            Log.e("ImagePicker", Objects.requireNonNull(url));
+            enity.setImgResUrl(url);
+            Glide.with(this).load(url).into(note_icon);
+        }
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_editing, menu);
         return true;
     }
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch(item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.menu_save_btn:
                 saveNote();
                 break;
@@ -349,10 +393,18 @@ public class EditingActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        saveNote();
+    }
+
     private void saveNote() {
-        if(editor.getContentAsHTML().length()>0){
+        if (editor.getContentAsHTML().length() > 0) {
             enity.setContent(editor.getContentAsHTML());
-            enity.setTitle("title1");
+            String title_temp = title.getText().toString();
+            enity.setTitle(title_temp);
+            enity.setTime(new Date());
             controlor.insertOrReplace(enity);
         }
     }

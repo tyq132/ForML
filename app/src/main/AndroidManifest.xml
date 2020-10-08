@@ -19,7 +19,8 @@
         android:resizeableActivity="true"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        tools:targetApi="o">
+        tools:targetApi="o"
+        android:requestLegacyExternalStorage="true">
         <activity
             android:name=".activity.EditingActivity"
             android:label="新建记事本"/>

@@ -16,40 +16,44 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
     </com.google.android.material.appbar.AppBarLayout>
+
     <RelativeLayout
+        android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
-        android:background="@color/white"
+        android:layout_height="match_parent"
         android:layout_marginTop="?attr/actionBarSize"
-        android:layout_height="match_parent">
+        android:background="@color/white">
         <!-- Begin Editor toolbar -->
         <LinearLayout
             android:layout_width="match_parent"
-            android:orientation="horizontal"
-            android:padding="5dp"
+            android:layout_height="@dimen/default_title_heigh"
             android:background="@color/color_type_info"
             android:gravity="center"
-            android:layout_height="wrap_content">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="34dp"
-                android:textAlignment="center"
-                android:text="标题:"/>
+            android:orientation="horizontal"
+            android:padding="5dp">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/note_icon"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:src="@drawable/wave_bg" />
+
             <EditText
                 android:id="@+id/title_edit"
-                android:hint="@string/input_title"
-                android:textSize="24dp"
-                android:backgroundTint="@color/color_primary_men"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:autofillHints=""
+                android:backgroundTint="@color/color_primary_men"
+                android:hint="@string/input_title"
+                android:textSize="24sp" />
         </LinearLayout>
 
         <HorizontalScrollView
             android:id="@+id/tools"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#e6e6e6"
             android:layout_alignParentBottom="true"
+            android:background="#e6e6e6"
             android:scrollbars="none">
 
             <include layout="@layout/editing_layout" />
@@ -59,23 +63,22 @@
         <!--End of Editor toolbar -->
         <ScrollView
             android:layout_width="match_parent"
-            android:scrollbars="vertical"
-            android:layout_marginTop="60dp"
-            android:layout_marginBottom="60dp"
+            android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:layout_height="match_parent">
+            android:layout_marginTop="90dp"
+            android:layout_marginBottom="@dimen/default_title_heigh"
+            android:scrollbars="vertical">
 
             <com.github.irshulx.Editor
-                android:layout_width="match_parent"
                 android:id="@+id/editor"
-                app:render_type="Editor"
-                app:placeholder="写点东西吧..."
-                android:paddingTop="10dp"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingBottom="100dp">
-            </com.github.irshulx.Editor>
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
+                android:paddingRight="20dp"
+                android:paddingBottom="100dp"
+                app:placeholder="写点东西吧..."
+                app:render_type="Editor"/>
         </ScrollView>
     </RelativeLayout>
 

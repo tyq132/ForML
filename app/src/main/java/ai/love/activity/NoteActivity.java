@@ -1,13 +1,13 @@
 package ai.love.activity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
@@ -17,13 +17,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 import ai.love.R;
 import ai.love.adapter.ItemAdapter;
-import ai.love.model.Item;
+import ai.love.controllor.NoteEnityControllor;
+import ai.love.model.NoteEnity;
 import ai.love.utils.ClickListenerUtil;
 
 import static ai.love.adapter.ItemAdapter.SPAN_COUNT_ONE;
@@ -31,42 +31,38 @@ import static ai.love.adapter.ItemAdapter.SPAN_COUNT_THREE;
 
 public class NoteActivity extends AppCompatActivity {
 
-    private static int[] imageResources = new int[]{
-            R.drawable.bat,
-            R.drawable.bear,
-            R.drawable.bee,
-            R.drawable.butterfly,
-    };
-
-    private RecyclerView recyclerView;
     private ItemAdapter itemAdapter;
     private GridLayoutManager gridLayoutManager;
-    private List<Item> items;
-    private Toolbar toolbar;
-    private FloatingActionButton edit_btn;
+    private List<NoteEnity> items;
+    private NoteEnityControllor controllor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_note);
 
+        controllor = new NoteEnityControllor(this);
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
-        initItemsData();
         initToolBar();
         initEditTtb();
 
+    }
 
+    @Override
+    protected void onResume() {
+        Log.e("onResume","启动");
+        initItemsData();
         gridLayoutManager = new GridLayoutManager(this, SPAN_COUNT_ONE);
-        itemAdapter = new ItemAdapter(items, gridLayoutManager);
-        recyclerView = (RecyclerView) findViewById(R.id.rv);
+        itemAdapter = new ItemAdapter(this, items, gridLayoutManager);
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.rv);
         recyclerView.setAdapter(itemAdapter);
         recyclerView.setLayoutManager(gridLayoutManager);
         initItemClickListener();
-
+        super.onResume();
     }
 
     private void initEditTtb() {
-       edit_btn = findViewById(R.id.edit_btn);
+        FloatingActionButton edit_btn = findViewById(R.id.edit_btn);
 
        edit_btn.setOnClickListener(new ClickListenerUtil() {
            @Override
@@ -79,15 +75,16 @@ public class NoteActivity extends AppCompatActivity {
     private void initItemClickListener() {
         itemAdapter.setOnItemClickListener(new ItemAdapter.OnItemClickListener() {
             @Override
-            public void onItemClick(TextView view, int position) {
-                String s = "点击了"+position+","+view.getText().toString();
-                Toast.makeText(NoteActivity.this,s,Toast.LENGTH_SHORT).show();
+            public void onItemClick(Long id, int position) {
+                Intent intent = new Intent(NoteActivity.this,EditingActivity.class);
+                intent.putExtra("Id",id);
+                startActivity(intent);
             }
         });
     }
 
     private void initToolBar() {
-        toolbar = findViewById(R.id.note_toolbar);
+        Toolbar toolbar = findViewById(R.id.note_toolbar);
         setSupportActionBar(toolbar);
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         toolbar.setBackgroundColor(Color.RED);
@@ -95,11 +92,7 @@ public class NoteActivity extends AppCompatActivity {
     }
 
     private void initItemsData() {
-        items = new ArrayList<>(4);
-        items.add(new Item(R.drawable.ic_plus, "Image 1", 20, 33));
-        items.add(new Item(R.drawable.img2, "Image 2", 10, 54));
-        items.add(new Item(R.drawable.img3, "Image 3", 27, 20));
-        items.add(new Item(R.drawable.img4, "Image 4", 45, 67));
+        items = controllor.searchAll();
     }
 
     @Override
@@ -132,6 +125,7 @@ public class NoteActivity extends AppCompatActivity {
         itemAdapter.notifyItemRangeChanged(0, itemAdapter.getItemCount());
     }
 
+    @SuppressLint("UseCompatLoadingForDrawables")
     private void switchIcon(MenuItem item) {
         if (gridLayoutManager.getSpanCount() == SPAN_COUNT_THREE) {
             item.setIcon(getResources().getDrawable(R.drawable.ic_span_3));

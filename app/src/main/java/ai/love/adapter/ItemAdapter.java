@@ -1,5 +1,7 @@
 package ai.love.adapter;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,10 +11,11 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import java.util.List;
 
 import ai.love.R;
-import ai.love.model.Item;
+import ai.love.model.NoteEnity;
 import ai.love.utils.ClickListenerUtil;
 
 /**
@@ -26,12 +29,14 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
     private static final int VIEW_TYPE_SMALL = 1;
     private static final int VIEW_TYPE_BIG = 2;
 
-    private List<Item> mItems;
+    private Context mContext;
+    private List<NoteEnity> mItems;
     private GridLayoutManager mLayoutManager;
     private OnItemClickListener mOnItemClickListener;//声明接口
 
 
-    public ItemAdapter(List<Item> items, GridLayoutManager layoutManager) {
+    public ItemAdapter(Context context,List<NoteEnity> items, GridLayoutManager layoutManager) {
+        mContext = context;
         mItems = items;
         mLayoutManager = layoutManager;
     }
@@ -57,13 +62,15 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
         return new ItemViewHolder(view, viewType, mOnItemClickListener);
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(ItemViewHolder holder, int position) {
-        Item item = mItems.get(position % 4);
+        NoteEnity item = mItems.get(position % 4);
+        holder.id.setText(item.getId().toString());
         holder.title.setText(item.getTitle());
-        holder.iv.setImageResource(item.getImgResId());
-        if (getItemViewType(position) == VIEW_TYPE_BIG) {
-            holder.info.setText(item.getLikes() + " likes  ·  " + item.getComments() + " comments");
+        Glide.with(mContext).load(item.getImgResUrl()).into(holder.iv);
+        if (getItemViewType(position) == VIEW_TYPE_BIG && item.getTime()!= null) {
+            holder.info.setText(item.getId()+":"+item.getTime().toString());
         }
     }
 
@@ -77,12 +84,14 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
     }
 
     class ItemViewHolder extends RecyclerView.ViewHolder {
+        TextView id;
         ImageView iv;
         TextView title;
         TextView info;
 
         ItemViewHolder(View itemView, int viewType, final OnItemClickListener listener) {
             super(itemView);
+            id = itemView.findViewById(R.id.note_id);
             if (viewType == VIEW_TYPE_BIG) {
                 iv = (ImageView) itemView.findViewById(R.id.image_big);
                 title = (TextView) itemView.findViewById(R.id.title_big);
@@ -99,7 +108,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
                         //确保position值有效
                         if (position != RecyclerView.NO_POSITION) {
                             /*设置点击后获取的数据，此处应为id*/
-                            listener.onItemClick(title, position);
+                            listener.onItemClick(Long.parseLong(id.getText().toString()), position);
                         }
                     }
                 }
@@ -107,6 +116,6 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
         }
     }
     public interface OnItemClickListener {
-        void onItemClick(TextView view, int position);
+        void onItemClick(Long id, int position);
     }
 }
