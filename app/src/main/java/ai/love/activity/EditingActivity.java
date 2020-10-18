@@ -2,7 +2,6 @@ package ai.love.activity;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
@@ -22,16 +21,20 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.bumptech.glide.Glide;
 import com.github.irshulx.Editor;
 import com.github.irshulx.EditorListener;
 import com.github.irshulx.models.EditorTextStyle;
+import com.luck.picture.lib.PictureSelector;
+import com.luck.picture.lib.config.PictureMimeType;
+import com.luck.picture.lib.entity.LocalMedia;
+import com.luck.picture.lib.listener.OnResultCallbackListener;
 import com.squareup.picasso.Picasso;
-import com.yuyh.library.imgsel.ISNav;
-import com.yuyh.library.imgsel.config.ISListConfig;
 
 import java.io.IOException;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Objects;
@@ -39,17 +42,18 @@ import java.util.Objects;
 import ai.love.R;
 import ai.love.controllor.NoteEnityControllor;
 import ai.love.model.NoteEnity;
+import ai.love.utils.GlideEngine;
 import top.defaults.colorpicker.ColorPickerPopup;
 
 public class EditingActivity extends AppCompatActivity {
-    private static final int REQUEST_CODE = 1001;
+    private static final int REQUEST_CODE = 2;
     private Toolbar toolbar;
     private NoteEnity enity;
     private NoteEnityControllor controlor;
     private ImageView note_icon;
     private EditText title;
-
     private Editor editor;
+    private String imgUrl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -193,60 +197,6 @@ public class EditingActivity extends AppCompatActivity {
             }
 
         });
-
-
-        /**
-         * rendering serialized content
-         // */
-        //  String serialized = "{\"nodes\":[{\"content\":[\"\\u003cp dir\\u003d\\\"ltr\\\"\\u003etextline 1 a great time and I will branch office is closed on Sundays\\u003c/p\\u003e\\n\"],\"contentStyles\":[\"H1\"],\"textSettings\":{\"textColor\":\"#c00000\"},\"type\":\"INPUT\"},{\"content\":[],\"type\":\"hr\"},{\"content\":[\"\\u003cp dir\\u003d\\\"ltr\\\"\\u003ethe only one that you have received the stream free and open minded person to discuss a business opportunity to discuss my background.\\u003c/p\\u003e\\n\"],\"contentStyles\":[],\"textSettings\":{\"textColor\":\"#000000\"},\"type\":\"INPUT\"},{\"childs\":[{\"content\":[\"it is a great weekend and we will have the same to me that the same a great time\"],\"contentStyles\":[\"BOLD\"],\"textSettings\":{\"textColor\":\"#FF0000\"},\"type\":\"IMG_SUB\"}],\"content\":[\"http://www.videogamesblogger.com/wp-content/uploads/2015/08/metal-gear-solid-5-the-phantom-pain-cheats-640x325.jpg\"],\"type\":\"img\"},{\"content\":[\"\\u003cp dir\\u003d\\\"ltr\\\"\\u003eI have a place where I have a great time and I will branch manager state to boast a new job in a few weeks and we can host or domain to get to know.\\u003c/p\\u003e\\n\"],\"contentStyles\":[],\"textSettings\":{\"textColor\":\"#000000\"},\"type\":\"INPUT\"},{\"childs\":[{\"content\":[\"the stream of water in a few weeks and we can host in the stream free and no ippo\"],\"contentStyles\":[],\"textSettings\":{\"textColor\":\"#5E5E5E\"},\"type\":\"IMG_SUB\"}],\"content\":[\"http://www.videogamesblogger.com/wp-content/uploads/2015/08/metal-gear-solid-5-the-phantom-pain-cheats-640x325.jpg\"],\"type\":\"img\"},{\"content\":[\"\\u003cp dir\\u003d\\\"ltr\\\"\\u003eit is that I can get it done today will online at location and I am not a big difference to me so that we are headed \\u003ca href\\u003d\\\"www.google.com\\\"\\u003ewww.google.com\\u003c/a\\u003e it was the only way I.\\u003c/p\\u003e\\n\"],\"contentStyles\":[],\"textSettings\":{\"textColor\":\"#000000\"},\"type\":\"INPUT\"},{\"content\":[\"\\u003cp dir\\u003d\\\"ltr\\\"\\u003eit is not a good day to get the latest version to blame it to the product the.\\u003c/p\\u003e\\n\"],\"contentStyles\":[\"BOLDITALIC\"],\"textSettings\":{\"textColor\":\"#000000\"},\"type\":\"INPUT\"},{\"content\":[\"\\u003cp dir\\u003d\\\"ltr\\\"\\u003eit is that I can send me your email to you and I am not able a great time and consideration I have to do the needful.\\u003c/p\\u003e\\n\"],\"contentStyles\":[\"INDENT\"],\"textSettings\":{\"textColor\":\"#000000\"},\"type\":\"INPUT\"},{\"content\":[\"\\u003cp dir\\u003d\\\"ltr\\\"\\u003eI will be a while ago to a great weekend a great time with the same.\\u003c/p\\u003e\\n\"],\"contentStyles\":[],\"textSettings\":{\"textColor\":\"#000000\"},\"type\":\"INPUT\"}]}";
-//        String serialized = "{\"nodes\":[{\"content\":[\"\\u003cp dir\\u003d\\\"ltr\\\"\\u003e\\u003cspan style\\u003d\\\"color:#000000;\\\"\\u003e\\u003cspan style\\u003d\\\"color:#000000;\\\"\\u003eit is not available beyond that statue in a few days and then we could\\u003c/span\\u003e\\u003c/span\\u003e\\u003c/p\\u003e\\n\"],\"contentStyles\":[\"H1\"],\"textSettings\":{\"textColor\":\"#000000\"},\"type\":\"INPUT\"},{\"content\":[],\"type\":\"hr\"},{\"content\":[\"author-tag\"],\"macroSettings\":{\"data-author-name\":\"Alex Wong\",\"data-tag\":\"macro\",\"data-date\":\"12 July 2018\"},\"type\":\"macro\"},{\"content\":[\"\\u003cp dir\\u003d\\\"ltr\\\"\\u003eit is a free trial to get a great weekend a good day to you u can do that for.\\u003c/p\\u003e\\n\"],\"contentStyles\":[],\"textSettings\":{\"textColor\":\"#000000\"},\"type\":\"INPUT\"},{\"content\":[\"\\u003cp dir\\u003d\\\"ltr\\\"\\u003eit is that I have to do the needful as early in life is not available beyond my imagination to be a good.\\u003c/p\\u003e\\n\"],\"contentStyles\":[],\"textSettings\":{\"textColor\":\"#000000\"},\"type\":\"INPUT\"},{\"childs\":[{\"content\":[\"\\u003cp dir\\u003d\\\"ltr\\\"\\u003e\\u003cb\\u003eit is not available in the next week or two and I have a place where I\\u003c/b\\u003e\\u003c/p\\u003e\\n\"],\"contentStyles\":[],\"textSettings\":{\"textColor\":\"#006AFF\"},\"type\":\"IMG_SUB\"}],\"content\":[\"http://www.videogamesblogger.com/wp-content/uploads/2015/08/metal-gear-solid-5-the-phantom-pain-cheats-640x325.jpg\"],\"type\":\"img\"},{\"content\":[\"\\u003cp dir\\u003d\\\"ltr\\\"\\u003eit is not available in the next week to see you tomorrow morning to see you then.\\u003c/p\\u003e\\n\"],\"contentStyles\":[],\"textSettings\":{\"textColor\":\"#000000\"},\"type\":\"INPUT\"},{\"content\":[],\"type\":\"hr\"},{\"content\":[\"\\u003cp dir\\u003d\\\"ltr\\\"\\u003eit is not available in the next day delivery to you soon with it and.\\u003c/p\\u003e\\n\"],\"contentStyles\":[],\"textSettings\":{\"textColor\":\"#000000\"},\"type\":\"INPUT\"}]}";
-        // EditorContent des = editor.getContentDeserialized(serialized);
-        // editor.render(des);
-
-//        Intent intent = new Intent(getApplicationContext(), RenderTestActivity.class);
-//        intent.putExtra("content", serialized);
-//        startActivity(intent);
-
-
-        /* *//**
-         * Rendering html
-         *//*
-        //render();
-        //editor.render();  // this method must be called to start the editor
-        String text = "<h1 data-tag=\"input\" style=\"color:#c00000;\"><span style=\"color:#C00000;\">textline 1 a great time and I will branch office is closed on Sundays</span></h1><hr data-tag=\"hr\"/><p data-tag=\"input\" style=\"color:#000000;\">the only one that you have received the stream free and open minded person to discuss a business opportunity to discuss my background.</p><div data-tag=\"img\"><img src=\"http://www.videogamesblogger.com/wp-content/uploads/2015/08/metal-gear-solid-5-the-phantom-pain-cheats-640x325.jpg\" /><p data-tag=\"img-sub\" style=\"color:#FF0000;\" class=\"editor-image-subtitle\"><b>it is a great weekend and we will have the same to me that the same a great time</b></p></div><p data-tag=\"input\" style=\"color:#000000;\">I have a place where I have a great time and I will branch manager state to boast a new job in a few weeks and we can host or domain to get to know.</p><div data-tag=\"img\"><img src=\"http://www.videogamesblogger.com/wp-content/uploads/2015/08/metal-gear-solid-5-the-phantom-pain-cheats-640x325.jpg\" /><p data-tag=\"img-sub\" style=\"color:#5E5E5E;\" class=\"editor-image-subtitle\">the stream of water in a few weeks and we can host in the stream free and no ippo</p></div><p data-tag=\"input\" style=\"color:#000000;\">it is that I can get it done today will online at location and I am not a big difference to me so that we are headed <a href=\"www.google.com\">www.google.com</a> it was the only way I.</p><blockquote data-tag=\"input\" style=\"color:#000000;\">I have to do the negotiation and a half years old story and I am looking forward in a few days.</blockquote><p data-tag=\"input\" style=\"color:#000000;\">it is not a good day to get the latest version to blame it to the product the.</p><ol data-tag=\"ol\"><li data-tag=\"list-item-ol\"><span style=\"color:#000000;\">it is that I can send me your email to you and I am not able a great time and consideration I have to do the needful.</span></li><li data-tag=\"list-item-ol\"><span style=\"color:#000000;\">I have to do the needful and send to me and</span></li><li data-tag=\"list-item-ol\"><span style=\"color:#000000;\">I will be a while ago to a great weekend a great time with the same.</span></li></ol><p data-tag=\"input\" style=\"color:#000000;\">it was u can do to make an offer for a good day I u u have been working with a new job to the stream free and no.</p><p data-tag=\"input\" style=\"color:#000000;\">it was u disgraced our new home in time to get the chance I could not find a good idea for you have a great.</p><p data-tag=\"input\" style=\"color:#000000;\">I have to do a lot to do the same a great time and I have a great.</p><p data-tag=\"input\" style=\"color:#000000;\"></p>";
-        //editor.render("<p>Hello man, whats up!</p>");
-        //String text = "<p data-tag=\"input\" style=\"color:#000000;\">I have to do the needful and send to me and my husband is in a Apple has to offer a variety is not a.</p><p data-tag=\"input\" style=\"color:#000000;\">I have to go with you will be highly grateful if we can get the latest</p><blockquote data-tag=\"input\" style=\"color:#000000;\">I have to do the negotiation and a half years old story and I am looking forward in a few days.</blockquote><p data-tag=\"input\" style=\"color:#000000;\">I have to do the needful at your to the product and the other to a new job is going well and that the same old stuff and a half day city is the stream and a good idea to get onboard the stream.</p>";
-        editor.render(text);
-        findViewById(R.id.btnRender).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                *//*
-                Retrieve the content as serialized, you could also say getContentAsHTML();
-                *//*
-                String text = editor.getContentAsSerialized();
-                editor.getContentAsHTML();
-                Intent intent = new Intent(getApplicationContext(), RenderTestActivity.class);
-                intent.putExtra("content", text);
-                startActivity(intent);
-            }
-        });*/
-
-
-        /**
-         * Since the endusers are typing the content, it's always considered good idea to backup the content every specific interval
-         * to be safe.
-         *
-         private final long backupInterval = 10 * 1000;
-         Timer timer = new Timer();
-         timer.scheduleAtFixedRate(new TimerTask() {
-        @Override public void run() {
-        String text = editor.getContentAsSerialized();
-        SharedPreferences.Editor preferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).edit();
-        preferences.putString(String.format("backup-{0}",  new SimpleDateFormat("dd-MM-yyyy hh:mm:ss").format(new Date())), text);
-        preferences.apply();
-        }
-        }, 0, backupInterval);
-         */
     }
 
     private String colorHex(int color) {
@@ -290,8 +240,9 @@ public class EditingActivity extends AppCompatActivity {
         if (id != -1L){
             enity = controlor.searchById(id);
             Log.e("图片路径：",enity.getImgResUrl());
-            Picasso.get().load("file://"+enity.getImgResUrl()).into(note_icon);
+            Picasso.get().load("file://"+enity.getImgResUrl().trim()).into(note_icon);
             title.setText(enity.getTitle());
+            imgUrl = enity.getImgResUrl();
             editor.render(enity.getContent());
             editor.setFocusableInTouchMode(false);
         }
@@ -300,51 +251,34 @@ public class EditingActivity extends AppCompatActivity {
 
     private void initNoteIconClick() {
         note_icon = findViewById(R.id.note_icon);
-        final ISNav isNav = ISNav.getInstance();
-        final ISListConfig config = new ISListConfig.Builder()
-                // 是否多选, 默认true
-                .multiSelect(false)
-                // 是否记住上次选中记录, 仅当multiSelect为true的时候配置，默认为true
-                .rememberSelected(false)
-                // “确定”按钮背景色
-                .btnBgColor(Color.GRAY)
-                // “确定”按钮文字颜色
-                .btnTextColor(Color.BLUE)
-                // 使用沉浸式状态栏
-                .statusBarColor(Color.parseColor("#3F51B5"))
-                // 返回图标ResId
-                .backResId(R.drawable.ic_back)
-                // 标题
-                .title("图片")
-                // 标题文字颜色
-                .titleColor(Color.WHITE)
-                // TitleBar背景色
-                .titleBgColor(Color.parseColor("#3F51B5"))
-                // 裁剪大小。needCrop为true的时候配置
-                .cropSize(1, 1, 200, 200)
-                .needCrop(true)
-                // 第一个是否显示相机，默认true
-                .needCamera(false)
-                // 最大选择图片数量，默认9
-                .build();
         note_icon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                isNav.init(new com.yuyh.library.imgsel.common.ImageLoader() {
-                    @Override
-                    public void displayImage(Context context, String path, ImageView imageView) {
-                        Picasso.get().load("file://"+path.trim()).into(imageView);
-                    }
-                });
-                // 跳转到图片选择器
-                isNav.toListActivity(EditingActivity.this, config, REQUEST_CODE);
+                PictureSelector.create(EditingActivity.this)
+                        .openGallery(PictureMimeType.ofAll())
+                        .imageEngine(GlideEngine.createGlideEngine())
+                        .forResult(new OnResultCallbackListener<LocalMedia>() {
+                            @Override
+                            public void onResult(List<LocalMedia> result) {
+                                imgUrl = result.get(0).getRealPath();
+                                Glide.with(EditingActivity.this).load(imgUrl).into(note_icon);
+                            }
+
+                            @Override
+                            public void onCancel() {
+                                // onCancel Callback
+                            }
+                        });
             }
         });
+
+
     }
     /*完成选择照片回调*/
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        Log.e("Result", ""+data+","+resultCode);
         if (requestCode == editor.PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK && data != null && data.getData() != null) {
             Uri uri = data.getData();
             try {
@@ -355,12 +289,6 @@ public class EditingActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
                 e.printStackTrace();
             }
-        } else if (resultCode == REQUEST_CODE) {
-            assert data != null;
-            String url = data.getStringExtra("extra.file_path");
-            Log.e("ImagePicker", Objects.requireNonNull(url));
-            enity.setImgResUrl(url);
-            Picasso.get().load("file://"+url).into(note_icon);
         }
     }
     @Override
@@ -401,6 +329,7 @@ public class EditingActivity extends AppCompatActivity {
             String title_temp = title.getText().toString();
             enity.setTitle(title_temp);
             enity.setTime(new Date());
+            enity.setImgResUrl(imgUrl==null? "url is none":imgUrl);
             controlor.insertOrReplace(enity);
         }
     }

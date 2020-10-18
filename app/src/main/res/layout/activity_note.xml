@@ -8,34 +8,29 @@
     tools:context="ai.love.activity.NoteActivity"
     android:orientation="vertical">
 
+    <com.scwang.smart.refresh.layout.SmartRefreshLayout
+        android:id="@+id/refresh_layout"
+        android:layout_marginTop="?attr/actionBarSize"
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <com.scwang.smart.refresh.header.ClassicsHeader
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+        <com.scwang.smart.refresh.footer.ClassicsFooter
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </com.scwang.smart.refresh.layout.SmartRefreshLayout>
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/note_toolbar"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize">
+        android:layout_height="?attr/actionBarSize"/>
 
-    </androidx.appcompat.widget.Toolbar>
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv"
-        android:layout_marginTop="?attr/actionBarSize"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-   <!-- <com.nightonke.boommenu.BoomMenuButton
-        android:id="@+id/bmb_edit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:padding="10dp"
-        app:bmb_buttonEnum="ham"
-        app:bmb_normalColor="@android:color/holo_red_dark"
-        app:bmb_use3DTransformAnimation="true"
-        app:bmb_piecePlaceEnum="piecePlace_ham_4"
-        app:bmb_buttonPlaceEnum="buttonPlace_ham_4">
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:src="@drawable/edit_icon"
-            />
-    </com.nightonke.boommenu.BoomMenuButton>-->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/edit_btn"
         android:layout_width="wrap_content"

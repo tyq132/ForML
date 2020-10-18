@@ -31,13 +31,13 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
     private static final int VIEW_TYPE_BIG = 2;
 
     private Context mContext;
-    private List<NoteEnity> mItems;
+    private List<NoteEnity> mDataList;
     private GridLayoutManager mLayoutManager;
     private OnItemClickListener mOnItemClickListener;//声明接口
 
     public ItemAdapter(Context context,List<NoteEnity> items, GridLayoutManager layoutManager) {
         mContext = context;
-        mItems = items;
+        mDataList = items;
         mLayoutManager = layoutManager;
     }
 
@@ -65,10 +65,11 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
     @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(ItemViewHolder holder, int position) {
-        NoteEnity item = mItems.get(position % 4);
+        NoteEnity item = mDataList.get(position % 4);
         holder.id.setText(item.getId().toString());
         holder.title.setText(item.getTitle());
-        Picasso.get().load("file://"+item.getImgResUrl().trim()).into(holder.iv);
+        String img_url = item.getImgResUrl() == null?"NONE":item.getImgResUrl();
+        Picasso.get().load("file://"+img_url.trim()).into(holder.iv);
         if (getItemViewType(position) == VIEW_TYPE_BIG && item.getTime()!= null) {
             holder.info.setText(item.getId()+":"+item.getTime().toString());
         }
@@ -76,11 +77,16 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
 
     @Override
     public int getItemCount() {
-        return mItems.size();
+        return mDataList.size();
     }
 
     public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
         mOnItemClickListener = onItemClickListener;
+    }
+
+    public void deleteItemByPosition(int position){
+        mDataList.remove(position);
+        notifyDataSetChanged();
     }
 
     class ItemViewHolder extends RecyclerView.ViewHolder {
@@ -113,9 +119,17 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
                     }
                 }
             });
+            itemView.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View v) {
+                    listener.onItemLongClick(Long.parseLong(id.getText().toString()),getAdapterPosition());
+                    return true;
+                }
+            });
         }
     }
     public interface OnItemClickListener {
         void onItemClick(Long id, int position);
+        void onItemLongClick(Long id, int position);
     }
 }
