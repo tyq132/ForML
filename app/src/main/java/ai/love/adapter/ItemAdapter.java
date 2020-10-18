@@ -11,7 +11,8 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
+import com.squareup.picasso.Picasso;
+
 import java.util.List;
 
 import ai.love.R;
@@ -33,7 +34,6 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
     private List<NoteEnity> mItems;
     private GridLayoutManager mLayoutManager;
     private OnItemClickListener mOnItemClickListener;//声明接口
-
 
     public ItemAdapter(Context context,List<NoteEnity> items, GridLayoutManager layoutManager) {
         mContext = context;
@@ -68,7 +68,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
         NoteEnity item = mItems.get(position % 4);
         holder.id.setText(item.getId().toString());
         holder.title.setText(item.getTitle());
-        Glide.with(mContext).load(item.getImgResUrl()).into(holder.iv);
+        Picasso.get().load("file://"+item.getImgResUrl().trim()).into(holder.iv);
         if (getItemViewType(position) == VIEW_TYPE_BIG && item.getTime()!= null) {
             holder.info.setText(item.getId()+":"+item.getTime().toString());
         }

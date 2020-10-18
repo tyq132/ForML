@@ -22,12 +22,11 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import com.bumptech.glide.Glide;
 import com.github.irshulx.Editor;
 import com.github.irshulx.EditorListener;
 import com.github.irshulx.models.EditorTextStyle;
+import com.squareup.picasso.Picasso;
 import com.yuyh.library.imgsel.ISNav;
-import com.yuyh.library.imgsel.common.ImageLoader;
 import com.yuyh.library.imgsel.config.ISListConfig;
 
 import java.io.IOException;
@@ -290,8 +289,8 @@ public class EditingActivity extends AppCompatActivity {
         Log.e("Id TEST", Long.toString(id));
         if (id != -1L){
             enity = controlor.searchById(id);
-            Log.e("Enity",enity.getImgResUrl());
-            Glide.with(this).load(enity.getImgResUrl()).into(note_icon);
+            Log.e("图片路径：",enity.getImgResUrl());
+            Picasso.get().load("file://"+enity.getImgResUrl()).into(note_icon);
             title.setText(enity.getTitle());
             editor.render(enity.getContent());
             editor.setFocusableInTouchMode(false);
@@ -301,47 +300,44 @@ public class EditingActivity extends AppCompatActivity {
 
     private void initNoteIconClick() {
         note_icon = findViewById(R.id.note_icon);
+        final ISNav isNav = ISNav.getInstance();
+        final ISListConfig config = new ISListConfig.Builder()
+                // 是否多选, 默认true
+                .multiSelect(false)
+                // 是否记住上次选中记录, 仅当multiSelect为true的时候配置，默认为true
+                .rememberSelected(false)
+                // “确定”按钮背景色
+                .btnBgColor(Color.GRAY)
+                // “确定”按钮文字颜色
+                .btnTextColor(Color.BLUE)
+                // 使用沉浸式状态栏
+                .statusBarColor(Color.parseColor("#3F51B5"))
+                // 返回图标ResId
+                .backResId(R.drawable.ic_back)
+                // 标题
+                .title("图片")
+                // 标题文字颜色
+                .titleColor(Color.WHITE)
+                // TitleBar背景色
+                .titleBgColor(Color.parseColor("#3F51B5"))
+                // 裁剪大小。needCrop为true的时候配置
+                .cropSize(1, 1, 200, 200)
+                .needCrop(true)
+                // 第一个是否显示相机，默认true
+                .needCamera(false)
+                // 最大选择图片数量，默认9
+                .build();
         note_icon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ISNav isNav = ISNav.getInstance();
-                isNav.init(new ImageLoader() {
+                isNav.init(new com.yuyh.library.imgsel.common.ImageLoader() {
                     @Override
                     public void displayImage(Context context, String path, ImageView imageView) {
-                        Glide.with(context).load(path).into(imageView);
+                        Picasso.get().load("file://"+path.trim()).into(imageView);
                     }
                 });
-                // 自由配置选项
-                ISListConfig config = new ISListConfig.Builder()
-                        // 是否多选, 默认true
-                        .multiSelect(false)
-                        // 是否记住上次选中记录, 仅当multiSelect为true的时候配置，默认为true
-                        .rememberSelected(false)
-                        // “确定”按钮背景色
-                        .btnBgColor(Color.GRAY)
-                        // “确定”按钮文字颜色
-                        .btnTextColor(Color.BLUE)
-                        // 使用沉浸式状态栏
-                        .statusBarColor(Color.parseColor("#3F51B5"))
-                        // 返回图标ResId
-                        .backResId(R.drawable.ic_back)
-                        // 标题
-                        .title("图片")
-                        // 标题文字颜色
-                        .titleColor(Color.WHITE)
-                        // TitleBar背景色
-                        .titleBgColor(Color.parseColor("#3F51B5"))
-                        // 裁剪大小。needCrop为true的时候配置
-                        .cropSize(1, 1, 200, 200)
-                        .needCrop(true)
-                        // 第一个是否显示相机，默认true
-                        .needCamera(false)
-                        // 最大选择图片数量，默认9
-                        .maxNum(9)
-                        .build();
-
-// 跳转到图片选择器
-                isNav.toListActivity(this, config, REQUEST_CODE);
+                // 跳转到图片选择器
+                isNav.toListActivity(EditingActivity.this, config, REQUEST_CODE);
             }
         });
     }
@@ -364,7 +360,7 @@ public class EditingActivity extends AppCompatActivity {
             String url = data.getStringExtra("extra.file_path");
             Log.e("ImagePicker", Objects.requireNonNull(url));
             enity.setImgResUrl(url);
-            Glide.with(this).load(url).into(note_icon);
+            Picasso.get().load("file://"+url).into(note_icon);
         }
     }
     @Override

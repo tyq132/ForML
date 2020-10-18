@@ -3,13 +3,13 @@ package ai.love.controllor;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.db.greendao.DaoMaster;
-import com.db.greendao.DaoSession;
-import com.db.greendao.NoteEnityDao;
-
 import java.util.List;
 
+import ai.love.model.DaoMaster;
+import ai.love.model.DaoSession;
 import ai.love.model.NoteEnity;
+import ai.love.model.NoteEnityDao;
+
 
 /**
  * Created by James Tang on 2020/10/2
