@@ -29,7 +29,15 @@
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/note_toolbar"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"/>
+        android:layout_height="?attr/actionBarSize">
+        <EditText
+            android:id="@+id/search_edittext"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="@color/black_overlay"
+            android:hint="输入数据检索"
+            android:visibility="gone"/>
+    </androidx.appcompat.widget.Toolbar>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/edit_btn"

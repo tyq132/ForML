@@ -1,12 +1,18 @@
 package ai.love.activity;
 
 import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
@@ -24,6 +30,7 @@ import com.scwang.smart.refresh.layout.listener.OnRefreshListener;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
 import ai.love.R;
 import ai.love.adapter.ItemAdapter;
@@ -43,6 +50,11 @@ public class NoteActivity extends AppCompatActivity {
     private NoteEnityControllor controllor;
     private RecyclerView recyclerView;
     private SmartRefreshLayout refreshLayout;
+    private Toolbar toolbar;
+    private EditText editText;
+    private PromptDialog deleteDialog;
+    private boolean isDeleting;
+    private boolean isAllChoiced;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,22 +63,43 @@ public class NoteActivity extends AppCompatActivity {
 
         refreshLayout = findViewById(R.id.refresh_layout);
         recyclerView = (RecyclerView) findViewById(R.id.rv);
-        controllor = new NoteEnityControllor(this);
+        controllor = NoteEnityControllor.getInstance(this);
+        editText = findViewById(R.id.search_edittext);
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
         initToolBar();
         initData();
+        initSearchEdit();
+        initDeleteDialog();
         initEditTtb();
         initRefresh();
 
     }
 
+    private void initSearchEdit() {
+        editText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                itemAdapter.getFilter().filter(s.toString());
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+    }
     private void initRefresh() {
         refreshLayout.setRefreshHeader(new ClassicsHeader(this));
         refreshLayout.setRefreshFooter(new ClassicsFooter(this));
         refreshLayout.setOnRefreshListener(new OnRefreshListener() {
             @Override
             public void onRefresh(RefreshLayout refreshlayout) {
-                initData();
+                itemAdapter.refreshList(controllor.searchAll());
                 refreshlayout.finishRefresh();//传入false表示刷新失败
             }
         });
@@ -102,34 +135,74 @@ public class NoteActivity extends AppCompatActivity {
         itemAdapter.setOnItemClickListener(new ItemAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(Long id, int position) {
-                Intent intent = new Intent(NoteActivity.this,EditingActivity.class);
-                intent.putExtra("Id",id);
-                startActivity(intent);
+                Log.e("短按",""+id+"||"+position);
+                if(isDeleting) {
+                    itemAdapter.addWillRemoveItem(position);
+                    if (itemAdapter.getRemoveList().size() >= items.size()) {
+                        isAllChoiced = true;
+                    } else {
+                        isAllChoiced = false;
+                    }
+                    invalidateOptionsMenu();
+                }else{
+                    Intent intent = new Intent(NoteActivity.this,EditingActivity.class);
+                    intent.putExtra("Id",id);
+                    startActivity(intent);
+                }
             }
 
             @Override
             public void onItemLongClick(final Long id, final int position) {
-                final PromptDialog promptDialog = new PromptDialog(NoteActivity.this)
-                        .setDialogType(PromptDialog.DIALOG_TYPE_WARNING)
-                        .setAnimationEnable(true)
-                        .setTitleText("确定删除吗")
-                        .setContentText("id:"+id)
-                        .setPositiveListener(getString(R.string.ok), new PromptDialog.OnPositiveListener() {
-                            @Override
-                            public void onClick(PromptDialog dialog) {
-                                controllor.delete(id);
-                                itemAdapter.deleteItemByPosition(position);
-                                dialog.dismiss();
-                            }
-                        });
-                promptDialog.setCancelable(false);
-                promptDialog.show();
+                Log.e("长按",""+id+"||"+position);
+               if(!isDeleting){
+                   isDeleting = true;
+               }
+               itemAdapter.addWillRemoveItem(position);
+               if(itemAdapter.getRemoveList().size()<items.size()){
+                   isAllChoiced = false;
+               }else{
+                   isAllChoiced = true;
+               }
+               toolbar.setNavigationIcon(R.drawable.cancel);
+               toolbar.setTag("cancel");
+               invalidateOptionsMenu();
+            }
+        });
+    }
+
+    private void updateDataList(Set<Integer> list) {
+
+    }
+
+    private void initDeleteDialog() {
+        deleteDialog = new PromptDialog(NoteActivity.this)
+                .setDialogType(PromptDialog.DIALOG_TYPE_WARNING)
+                .setAnimationEnable(true)
+                .setTitleText("确定删除吗")
+                .setPositiveListener(getString(R.string.ok), new PromptDialog.OnPositiveListener() {
+                    @Override
+                    public void onClick(PromptDialog dialog) {
+                        toolbar.setTag("default");
+                        isDeleting = false;
+                        Set<Integer> list = itemAdapter.getRemoveList();
+                        invalidateOptionsMenu();
+                        itemAdapter.deleteItem(list,controllor);
+                        updateDataList(list);
+                        dialog.dismiss();
+                    }
+                });
+        deleteDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
+            @Override
+            public void onCancel(DialogInterface dialog) {
+                toolbar.setTag("cancel");
+                isDeleting = true;
+                invalidateOptionsMenu();
             }
         });
     }
 
     private void initToolBar() {
-        Toolbar toolbar = findViewById(R.id.note_toolbar);
+        toolbar = findViewById(R.id.note_toolbar);
         setSupportActionBar(toolbar);
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         toolbar.setBackgroundColor(Color.RED);
@@ -138,8 +211,7 @@ public class NoteActivity extends AppCompatActivity {
 
     @Override
     protected void onResume() {
-        initData();
-        itemAdapter.notifyDataSetChanged();
+        itemAdapter.refreshList(controllor.searchAll());
         super.onResume();
     }
 
@@ -150,17 +222,85 @@ public class NoteActivity extends AppCompatActivity {
     }
 
     @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        if(isDeleting){
+            menu.findItem(R.id.menu_delete_layout).setVisible(true);
+            menu.findItem(R.id.menu_choiceall_layout).setVisible(true);
+            menu.findItem(R.id.menu_search_layout).setVisible(false);
+            menu.findItem(R.id.menu_switch_layout).setVisible(false);
+        }else{
+            toolbar.setNavigationIcon(R.drawable.picture_icon_back);
+            toolbar.setTag("default");
+            menu.findItem(R.id.menu_search_layout).setVisible(true);
+            menu.findItem(R.id.menu_delete_layout).setVisible(false);
+            menu.findItem(R.id.menu_choiceall_layout).setVisible(false);
+            menu.findItem(R.id.menu_switch_layout).setVisible(true);
+        }
+        if(isAllChoiced){
+            menu.findItem(R.id.menu_choiceall_layout).setIcon(R.drawable.picture_icon_checked);
+        }else{
+            menu.findItem(R.id.menu_choiceall_layout).setIcon(R.drawable.picture_icon_check);
+        }
+
+        if(editText.getVisibility() == View.VISIBLE){
+            toolbar.setNavigationIcon(R.drawable.cancel);
+            toolbar.setTag("search_cancel");
+            menu.findItem(R.id.menu_search_layout).setVisible(false);
+            menu.findItem(R.id.menu_delete_layout).setVisible(false);
+            menu.findItem(R.id.menu_choiceall_layout).setVisible(false);
+            menu.findItem(R.id.menu_switch_layout).setVisible(false);
+        }
+        return super.onPrepareOptionsMenu(menu);
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch(item.getItemId()){
             case android.R.id.home:
-                onBackPressed();
+                if(toolbar.getTag().equals("cancel")){
+                    isDeleting = false;
+                    toolbar.setTag("default");
+                    toolbar.setNavigationIcon(R.drawable.picture_icon_back);
+                    itemAdapter.refrashRemoveList();
+                }else if(toolbar.getTag().equals("search_cancel")){
+                    editText.setVisibility(View.GONE);
+                    toolbar.setNavigationIcon(R.drawable.picture_icon_back);
+                    itemAdapter.isSearching = false;
+                    itemAdapter.notifyDataSetChanged();
+                }else{
+                    onBackPressed();
+                }
                 break;
             case R.id.menu_switch_layout:
                 switchLayout();
                 switchIcon(item);
+                break;
+            case R.id.menu_search_layout:
+                editText.setVisibility(View.VISIBLE);
+                itemAdapter.isSearching = true;
+                itemAdapter.notifyDataSetChanged();
+                break;
+            case R.id.menu_delete_layout:
+                Set<Integer> set = itemAdapter.getRemoveList();
+                if(set.size()>0 && !set.contains(-2)){
+                    deleteDialog.setContentText(set.toString()).show();
+                }else{
+                    Toast.makeText(NoteActivity.this,"未选中任意项",Toast.LENGTH_SHORT).show();
+                }
+                break;
+            case R.id.menu_choiceall_layout:
+                if(isAllChoiced){
+                    isAllChoiced = false;
+                    itemAdapter.addWillRemoveItem(-2);
+                }else{
+                    isAllChoiced = true;
+                    itemAdapter.addWillRemoveItem(-1);
+                }
+                break;
             default:
-                return true;
+                break;
         }
+        invalidateOptionsMenu();
         return super.onOptionsItemSelected(item);
     }
 
