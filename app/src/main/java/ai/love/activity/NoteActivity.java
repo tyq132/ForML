@@ -1,6 +1,5 @@
 package ai.love.activity;
 
-import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
@@ -28,6 +27,8 @@ import com.scwang.smart.refresh.layout.api.RefreshLayout;
 import com.scwang.smart.refresh.layout.listener.OnLoadMoreListener;
 import com.scwang.smart.refresh.layout.listener.OnRefreshListener;
 
+import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
@@ -46,7 +47,7 @@ public class NoteActivity extends AppCompatActivity {
 
     private ItemAdapter itemAdapter;
     private GridLayoutManager gridLayoutManager;
-    private List<NoteEnity> items;
+    private LinkedList<NoteEnity> items;
     private NoteEnityControllor controllor;
     private RecyclerView recyclerView;
     private SmartRefreshLayout refreshLayout;
@@ -61,6 +62,7 @@ public class NoteActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_note);
 
+        items = new LinkedList<>();
         refreshLayout = findViewById(R.id.refresh_layout);
         recyclerView = (RecyclerView) findViewById(R.id.rv);
         controllor = NoteEnityControllor.getInstance(this);
@@ -70,9 +72,23 @@ public class NoteActivity extends AppCompatActivity {
         initData();
         initSearchEdit();
         initDeleteDialog();
-        initEditTtb();
+        initFloatingBtn();
         initRefresh();
 
+    }
+
+    protected void initData() {
+        List<NoteEnity> list = controllor.searchAll();
+        for (NoteEnity enity : list) {
+            items.add(enity);
+        }
+        Log.e("初始化的数据", Arrays.toString(items.toArray()));
+        gridLayoutManager = new GridLayoutManager(this, SPAN_COUNT_ONE);
+        itemAdapter = new ItemAdapter(this, items, gridLayoutManager);
+        recyclerView.setAdapter(itemAdapter);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(gridLayoutManager);
+        initItemClickListener();
     }
 
     private void initSearchEdit() {
@@ -100,30 +116,21 @@ public class NoteActivity extends AppCompatActivity {
             @Override
             public void onRefresh(RefreshLayout refreshlayout) {
                 itemAdapter.refreshList(controllor.searchAll());
+                Log.e("初始化的数据", Arrays.toString(controllor.searchAll().toArray()));
                 refreshlayout.finishRefresh();//传入false表示刷新失败
             }
         });
         refreshLayout.setOnLoadMoreListener(new OnLoadMoreListener() {
             @Override
             public void onLoadMore(RefreshLayout refreshlayout) {
-                refreshlayout.finishLoadMore(2000/*,false*/);//传入false表示加载失败
+                refreshlayout.finishLoadMore();//传入false表示加载失败
             }
         });
     }
 
-    protected void initData() {
-        items = controllor.searchAll();
-        gridLayoutManager = new GridLayoutManager(this, SPAN_COUNT_ONE);
-        itemAdapter = new ItemAdapter(this, items, gridLayoutManager);
-        recyclerView.setAdapter(itemAdapter);
-        recyclerView.setLayoutManager(gridLayoutManager);
-        initItemClickListener();
-    }
-
-    private void initEditTtb() {
-        FloatingActionButton edit_btn = findViewById(R.id.edit_btn);
-
-       edit_btn.setOnClickListener(new ClickListenerUtil() {
+    private void initFloatingBtn() {
+        FloatingActionButton edit_btn = findViewById(R.id.add_btn);
+        edit_btn.setOnClickListener(new ClickListenerUtil() {
            @Override
            public void onMultiClick(View v) {
                 startActivity(new Intent(NoteActivity.this, EditingActivity.class));
@@ -170,8 +177,8 @@ public class NoteActivity extends AppCompatActivity {
         });
     }
 
-    private void updateDataList(Set<Integer> list) {
-
+    private void updateDataList() {
+        items = itemAdapter.getmDataList();
     }
 
     private void initDeleteDialog() {
@@ -184,10 +191,9 @@ public class NoteActivity extends AppCompatActivity {
                     public void onClick(PromptDialog dialog) {
                         toolbar.setTag("default");
                         isDeleting = false;
-                        Set<Integer> list = itemAdapter.getRemoveList();
+                        itemAdapter.deleteItem(controllor);
+                        updateDataList();
                         invalidateOptionsMenu();
-                        itemAdapter.deleteItem(list,controllor);
-                        updateDataList(list);
                         dialog.dismiss();
                     }
                 });
@@ -205,14 +211,22 @@ public class NoteActivity extends AppCompatActivity {
         toolbar = findViewById(R.id.note_toolbar);
         setSupportActionBar(toolbar);
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+        toolbar.setNavigationIcon(R.drawable.back_btn);
         toolbar.setBackgroundColor(Color.RED);
         toolbar.setTitleTextColor(Color.BLACK);
     }
 
     @Override
-    protected void onResume() {
-        itemAdapter.refreshList(controllor.searchAll());
-        super.onResume();
+    protected void onRestart() {
+        super.onRestart();
+        Long id  = NoteEnityControllor.tempId;
+        if(NoteEnityControllor.tempId!=-1) {
+            itemAdapter.addItem(controllor, id);
+            updateDataList();
+            //items.add(controllor.searchById(id));
+        }
+        NoteEnityControllor.tempId = -1L;
+        recyclerView.scrollToPosition(0);
     }
 
     @Override
@@ -229,7 +243,7 @@ public class NoteActivity extends AppCompatActivity {
             menu.findItem(R.id.menu_search_layout).setVisible(false);
             menu.findItem(R.id.menu_switch_layout).setVisible(false);
         }else{
-            toolbar.setNavigationIcon(R.drawable.picture_icon_back);
+            toolbar.setNavigationIcon(R.drawable.back_btn);
             toolbar.setTag("default");
             menu.findItem(R.id.menu_search_layout).setVisible(true);
             menu.findItem(R.id.menu_delete_layout).setVisible(false);
@@ -250,6 +264,12 @@ public class NoteActivity extends AppCompatActivity {
             menu.findItem(R.id.menu_choiceall_layout).setVisible(false);
             menu.findItem(R.id.menu_switch_layout).setVisible(false);
         }
+        Log.e("Switce",""+gridLayoutManager.getSpanCount());
+        if (gridLayoutManager.getSpanCount() == SPAN_COUNT_THREE) {
+            menu.findItem(R.id.menu_switch_layout).setIcon(R.drawable.ic_span_1);
+        } else {
+            menu.findItem(R.id.menu_switch_layout).setIcon(R.drawable.ic_span_3);
+        }
         return super.onPrepareOptionsMenu(menu);
     }
 
@@ -260,11 +280,11 @@ public class NoteActivity extends AppCompatActivity {
                 if(toolbar.getTag().equals("cancel")){
                     isDeleting = false;
                     toolbar.setTag("default");
-                    toolbar.setNavigationIcon(R.drawable.picture_icon_back);
+                    toolbar.setNavigationIcon(R.drawable.back_btn);
                     itemAdapter.refrashRemoveList();
                 }else if(toolbar.getTag().equals("search_cancel")){
                     editText.setVisibility(View.GONE);
-                    toolbar.setNavigationIcon(R.drawable.picture_icon_back);
+                    toolbar.setNavigationIcon(R.drawable.back_btn);
                     itemAdapter.isSearching = false;
                     itemAdapter.notifyDataSetChanged();
                 }else{
@@ -273,7 +293,6 @@ public class NoteActivity extends AppCompatActivity {
                 break;
             case R.id.menu_switch_layout:
                 switchLayout();
-                switchIcon(item);
                 break;
             case R.id.menu_search_layout:
                 editText.setVisibility(View.VISIBLE);
@@ -311,14 +330,5 @@ public class NoteActivity extends AppCompatActivity {
             gridLayoutManager.setSpanCount(SPAN_COUNT_ONE);
         }
         itemAdapter.notifyItemRangeChanged(0, itemAdapter.getItemCount());
-    }
-
-    @SuppressLint("UseCompatLoadingForDrawables")
-    private void switchIcon(MenuItem item) {
-        if (gridLayoutManager.getSpanCount() == SPAN_COUNT_THREE) {
-            item.setIcon(getResources().getDrawable(R.drawable.ic_span_3));
-        } else {
-            item.setIcon(getResources().getDrawable(R.drawable.ic_span_1));
-        }
     }
 }

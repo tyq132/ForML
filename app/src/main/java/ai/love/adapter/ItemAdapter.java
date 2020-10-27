@@ -2,7 +2,11 @@ package ai.love.adapter;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Build;
+import android.text.SpannableStringBuilder;
+import android.text.Spanned;
+import android.text.style.ForegroundColorSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,12 +24,16 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import ai.love.R;
 import ai.love.controllor.NoteEnityControllor;
 import ai.love.model.NoteEnity;
+import ai.love.utils.TimeFarmatUtil;
 
 /**
  * Created by gjz on 16/01/2017.
@@ -40,20 +48,70 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
     public boolean isSearching;
 
     private Context mContext;
-    private List<NoteEnity> mDataList;
+    private LinkedList<NoteEnity> mDataList;
     private Set<Integer> mRemoveList;
+    private List<String> mIndexList;
+    private int startIndex;
+    private int endIndex;
+    private Matcher matcher;
     private GridLayoutManager mLayoutManager;
     private OnItemClickListener mOnItemClickListener;//声明接口
     private List<NoteEnity> mFilterList;
 
-    public ItemAdapter(Context context, List<NoteEnity> items, GridLayoutManager layoutManager) {
+    public ItemAdapter(Context context, LinkedList<NoteEnity> items, GridLayoutManager layoutManager) {
         mContext = context;
         mDataList = items;
         mRemoveList = new HashSet<>();
         mFilterList = new ArrayList<>();
+        mIndexList = new LinkedList<>();
         mLayoutManager = layoutManager;
     }
 
+    @Override
+    public ItemViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view;
+        if (viewType == VIEW_TYPE_BIG) {
+            view = LayoutInflater.from(mContext).inflate(R.layout.item_big, parent, false);
+        } else {
+            view = LayoutInflater.from(mContext).inflate(R.layout.item_small, parent, false);
+        }
+        return new ItemViewHolder(view, viewType, mOnItemClickListener);
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.M)
+    @SuppressLint("SetTextI18n")
+    @Override
+    public void onBindViewHolder(ItemViewHolder holder, int position) {
+        NoteEnity item;
+        ForegroundColorSpan colorSpan;
+        if(isSearching){
+            if(mFilterList.size()>0){
+                item = mFilterList.get(position);
+                colorSpan = new ForegroundColorSpan(Color.parseColor("#29B6F6"));
+            }else{
+                return;
+            }
+        }else{
+            item = mDataList.get(position);
+            colorSpan = new ForegroundColorSpan(Color.parseColor("#000000"));
+            int type = getItemViewType(position);
+            if (type == VIEW_TYPE_BIG && item.getTime() != null) {
+                holder.info.setText(TimeFarmatUtil.dateToString(item.getTime(),"yyyy, MM-dd"));
+            }
+            setItemRemoveStatue(holder, position, type);
+        }
+        String title = item.getTitle();
+        SpannableStringBuilder spannable = new SpannableStringBuilder(title);
+        if(mIndexList.size()>0){
+            String[] indexs = mIndexList.get(position).split("@");
+            spannable.setSpan(colorSpan,Integer.parseInt(indexs[0]),Integer.parseInt(indexs[1]), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        }
+        holder.id.setText(item.getId().toString());
+        holder.title.setText(spannable);
+        String img_url = item.getImgResUrl() == null ? "NONE" : item.getImgResUrl();
+        Picasso.get().load("file://" + img_url.trim()).into(holder.iv);
+
+    }
     @Override
     public int getItemViewType(int position) {
         int spanCount = mLayoutManager.getSpanCount();
@@ -65,55 +123,28 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
     }
 
     @Override
-    public ItemViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view;
-        if (viewType == VIEW_TYPE_BIG) {
-            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_big, parent, false);
-        } else {
-            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_small, parent, false);
-        }
-        return new ItemViewHolder(view, viewType, mOnItemClickListener);
-    }
-
-    @RequiresApi(api = Build.VERSION_CODES.M)
-    @SuppressLint("SetTextI18n")
-    @Override
-    public void onBindViewHolder(ItemViewHolder holder, int position) {
-        NoteEnity item;
-        if(isSearching){
-            if(mFilterList.size()>0){
-                item = mFilterList.get(position);
-            }else{
-                return;
-            }
-        }else{
-            item = mDataList.get(position % 4);
-            int type = getItemViewType(position);
-            if (type == VIEW_TYPE_BIG && item.getTime() != null) {
-                holder.info.setText(item.getId() + ":" + item.getTime().toString());
-            }
-            setItemRemoveStatue(holder, position, type);
-        }
-        holder.id.setText(item.getId().toString());
-        holder.title.setText(item.getTitle());
-        String img_url = item.getImgResUrl() == null ? "NONE" : item.getImgResUrl();
-        Picasso.get().load("file://" + img_url.trim()).into(holder.iv);
-
-    }
-
-    @Override
     public Filter getFilter() {
         return new Filter() {
             @Override
             protected FilterResults performFiltering(CharSequence constraint) {
                 String str = constraint.toString();
+                mIndexList.clear();
                 if(str.isEmpty()){
                     mFilterList.clear();
                 }else{
                     List<NoteEnity> filterList = new ArrayList<>();
                     for(NoteEnity enity : mDataList){
                         if(enity.getTitle().contains(str)){
+                            matcher = Pattern.compile(constraint.toString()).matcher(enity.getTitle());
+                            if(matcher.find()){
+                                startIndex = matcher.start();
+                                endIndex = startIndex+constraint.toString().length();
+                                String index = startIndex+"@"+endIndex;
+                                mIndexList.add(index);
+                            }
                             filterList.add(enity);
+                        }else{
+                            break;
                         }
                     }
                     mFilterList = filterList;
@@ -135,6 +166,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
     public int getItemCount() {
         return isSearching? mFilterList.size():mDataList.size();
     }
+
 
     @SuppressLint("UseCompatLoadingForDrawables")
     private void setItemRemoveStatue(ItemViewHolder holder, int position, int type) {
@@ -162,10 +194,13 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
         }
     }
 
-    public void deleteItem(Set<Integer> list, NoteEnityControllor controllor){
-        List<NoteEnity> deleteList = new ArrayList<>(list.size());
-        for(int position: list){
-            NoteEnity enity = mDataList.get(position);
+    public void deleteItem(NoteEnityControllor controllor){
+        List<NoteEnity> deleteList = new LinkedList<>();
+        NoteEnity enity;
+        for(int position: mRemoveList){
+            enity = mDataList.get(position);
+            notifyItemRemoved(position);
+            notifyItemChanged(position);
             deleteList.add(enity);
             controllor.delete(enity.getId());
         }
@@ -197,16 +232,12 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
         notifyDataSetChanged();
     }
 
-    public void addItem(NoteEnity enity){
-        mDataList.add(0,enity);
-        notifyItemInserted(0);
-        notifyDataSetChanged();
-    }
 
-    public void refreshList(List<NoteEnity> list){
-        mDataList.clear();
-        sortByTime(mDataList,list);
-        notifyDataSetChanged();
+    public void addItem(NoteEnityControllor controllor,long id){
+        mDataList.add(0,controllor.searchById(id));
+        notifyItemInserted(0);
+        notifyItemRangeChanged(0,mDataList.size());
+        //notifyDataSetChanged();
     }
 
     private void sortByTime(List<NoteEnity> newList, List<NoteEnity> oldList) {
@@ -219,13 +250,18 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
         mOnItemClickListener = onItemClickListener;
     }
 
-    public void deleteItemByPosition(int position) {
-        mDataList.remove(position);
-        notifyDataSetChanged();
-    }
-
     public Set<Integer> getRemoveList() {
         return mRemoveList;
+    }
+
+    public LinkedList<NoteEnity> getmDataList(){
+        return mDataList;
+    }
+
+    public void refreshList(List<NoteEnity> searchAll) {
+        mDataList.clear();
+        mDataList.addAll(searchAll);
+        notifyDataSetChanged();
     }
 
 

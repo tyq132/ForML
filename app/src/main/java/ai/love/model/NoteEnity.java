@@ -1,8 +1,6 @@
 package ai.love.model;
 
-import org.greenrobot.greendao.annotation.Entity;
-import org.greenrobot.greendao.annotation.Generated;
-import org.greenrobot.greendao.annotation.Id;
+import org.greenrobot.greendao.annotation.*;
 
 import java.util.Date;
 
@@ -12,7 +10,7 @@ import java.util.Date;
  */
 @Entity
 public class NoteEnity {
-    @Id(autoincrement = true)
+    @Id
     private Long Id;
     private String title;
     private String content;

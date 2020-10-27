@@ -43,7 +43,7 @@ public class NoteEnityDao extends AbstractDao<NoteEnity, Long> {
     public static void createTable(Database db, boolean ifNotExists) {
         String constraint = ifNotExists? "IF NOT EXISTS ": "";
         db.execSQL("CREATE TABLE " + constraint + "\"NOTE_ENITY\" (" + //
-                "\"_id\" INTEGER PRIMARY KEY AUTOINCREMENT ," + // 0: Id
+                "\"_id\" INTEGER PRIMARY KEY ," + // 0: Id
                 "\"TITLE\" TEXT," + // 1: title
                 "\"CONTENT\" TEXT," + // 2: content
                 "\"TIME\" INTEGER," + // 3: time

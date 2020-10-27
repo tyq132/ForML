@@ -15,6 +15,8 @@ import ai.love.model.NoteEnityDao;
  * Created by James Tang on 2020/10/2
  */
 public class NoteEnityControllor {
+
+    public static Long tempId = -1L;
     /**
      * Helper
      */
@@ -154,7 +156,7 @@ public class NoteEnityControllor {
      * 查询所有数据
      */
     public List<NoteEnity> searchAll() {
-        return noteDao.queryBuilder().list();
+        return noteDao.queryBuilder().build().list();
     }
 
     /**

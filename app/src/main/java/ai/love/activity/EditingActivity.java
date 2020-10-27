@@ -54,12 +54,12 @@ public class EditingActivity extends AppCompatActivity {
     private EditText title;
     private Editor editor;
     private String imgUrl;
+    private long ID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_editing);
-        enity = new NoteEnity();
         note_icon = findViewById(R.id.note_icon);
         title = findViewById(R.id.title_edit);
         controlor = NoteEnityControllor.getInstance(this);
@@ -235,10 +235,10 @@ public class EditingActivity extends AppCompatActivity {
 
     private void initEditor() {
         editor = findViewById(R.id.editor);
-        long id = getIntent().getLongExtra("Id", -1L);
-        Log.e("Id TEST", Long.toString(id));
-        if (id != -1L){
-            enity = controlor.searchById(id);
+        ID = getIntent().getLongExtra("Id", -1L);
+        Log.e("Id TEST", Long.toString(ID));
+        if (ID != -1L){
+            enity = controlor.searchById(ID);
             Log.e("图片路径：",enity.getImgResUrl());
             Picasso.get().load("file://"+enity.getImgResUrl().trim()).into(note_icon);
             title.setText(enity.getTitle());
@@ -299,9 +299,7 @@ public class EditingActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.menu_save_btn:
-                saveNote();
-                break;
+
             case R.id.menu_theme_btn:
                 changeTheme();
                 break;
@@ -320,16 +318,22 @@ public class EditingActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        saveNote();
+        if(editor.getContentAsHTML().trim().length()>0 | title.getText().toString().trim().length()>0){
+            saveNote();
+        }
     }
 
     private void saveNote() {
-        if (editor.getContentAsHTML().length() > 0) {
-            enity.setContent(editor.getContentAsHTML());
+        String content = title.getText().toString();
+        Log.e("点前id",""+ID);
+        if (ID == -1L && content.trim().length()>0) {
             String title_temp = title.getText().toString();
-            enity.setTitle(title_temp);
-            enity.setTime(new Date());
-            enity.setImgResUrl(imgUrl==null? "url is none":imgUrl);
+            enity = new NoteEnity(System.currentTimeMillis(),title_temp,editor.getContentAsHTML(),new Date(),"book",imgUrl==null? "url is none":imgUrl);
+            NoteEnityControllor.tempId = enity.getId();
+            controlor.insertOrReplace(enity);
+        }else{
+            String title_temp = title.getText().toString();
+            enity = new NoteEnity(enity.getId(),title_temp,editor.getContentAsHTML(),new Date(),"book",imgUrl==null? "url is none":imgUrl);
             controlor.insertOrReplace(enity);
         }
     }

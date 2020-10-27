@@ -7,11 +7,6 @@
         app:showAsAction="ifRoom"
         android:icon="@drawable/label_icon"/>
     <item
-        android:id="@+id/menu_save_btn"
-        android:title="@string/save"
-        app:showAsAction="ifRoom"
-        android:icon="@drawable/save_icon"/>
-    <item
         android:id="@+id/menu_theme_btn"
         android:title="@string/page_theme"
         app:showAsAction="ifRoom"
