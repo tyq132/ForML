@@ -3,6 +3,7 @@ package ai.love.activity;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.Typeface;
@@ -20,6 +21,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.loader.content.CursorLoader;
 
 import com.bumptech.glide.Glide;
 import com.github.irshulx.Editor;
@@ -54,6 +56,7 @@ public class EditingActivity extends AppCompatActivity {
     private EditText title;
     private Editor editor;
     private String imgUrl;
+    private String imgUrl1;
     private long ID;
 
     @Override
@@ -67,6 +70,57 @@ public class EditingActivity extends AppCompatActivity {
         initToolbar();
         setUpEditor();
         initNoteIconClick();
+    }
+
+    @SuppressLint("ResourceAsColor")
+    private void initToolbar() {
+        toolbar = findViewById(R.id.editing_toolbar);
+        setSupportActionBar(toolbar);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
+        toolbar.setBackgroundColor(R.color.light_blue);
+        toolbar.setTitleTextColor(Color.BLACK);
+    }
+
+    private void initEditor() {
+        editor = findViewById(R.id.editor);
+        ID = getIntent().getLongExtra("Id", -1L);
+        Log.e("Id TEST", Long.toString(ID));
+        if (ID != -1L){
+            enity = controlor.searchById(ID);
+            Log.e("笔记内容",""+enity.getContent());
+            Picasso.get().load("file://"+enity.getImgResUrl().trim()).into(note_icon);
+            title.setText(enity.getTitle());
+            imgUrl = enity.getImgResUrl();
+            editor.render(enity.getContent());
+            editor.setFocusableInTouchMode(false);
+        }
+        editor.setBackgroundResource(R.drawable.question_bg);
+    }
+
+    private void initNoteIconClick() {
+        note_icon = findViewById(R.id.note_icon);
+        note_icon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PictureSelector.create(EditingActivity.this)
+                        .openGallery(PictureMimeType.ofAll())
+                        .imageEngine(GlideEngine.createGlideEngine())
+                        .forResult(new OnResultCallbackListener<LocalMedia>() {
+                            @Override
+                            public void onResult(List<LocalMedia> result) {
+                                imgUrl = result.get(0).getRealPath();
+                                Glide.with(EditingActivity.this).load(imgUrl).into(note_icon);
+                            }
+
+                            @Override
+                            public void onCancel() {
+                                // onCancel Callback
+                            }
+                        });
+            }
+        });
+
+
     }
 
     private void setUpEditor() {
@@ -186,7 +240,7 @@ public class EditingActivity extends AppCompatActivity {
                  * TODO do your upload here from the bitmap received and all onImageUploadComplete(String url); to insert the result url to
                  * let the editor know the upload has completed
                  */
-                editor.onImageUploadComplete("http://www.videogamesblogger.com/wp-content/uploads/2015/08/metal-gear-solid-5-the-phantom-pain-cheats-640x325.jpg", uuid);
+                editor.onImageUploadComplete(imgUrl1, uuid);
                 // editor.onImageUploadFailed(uuid);
             }
 
@@ -223,73 +277,40 @@ public class EditingActivity extends AppCompatActivity {
         typefaceMap.put(Typeface.BOLD_ITALIC, "fonts/Lato-BoldItalic.ttf");
         return typefaceMap;
     }
-
-    @SuppressLint("ResourceAsColor")
-    private void initToolbar() {
-        toolbar = findViewById(R.id.editing_toolbar);
-        setSupportActionBar(toolbar);
-        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
-        toolbar.setBackgroundColor(R.color.light_blue);
-        toolbar.setTitleTextColor(Color.BLACK);
-    }
-
-    private void initEditor() {
-        editor = findViewById(R.id.editor);
-        ID = getIntent().getLongExtra("Id", -1L);
-        Log.e("Id TEST", Long.toString(ID));
-        if (ID != -1L){
-            enity = controlor.searchById(ID);
-            Log.e("图片路径：",enity.getImgResUrl());
-            Picasso.get().load("file://"+enity.getImgResUrl().trim()).into(note_icon);
-            title.setText(enity.getTitle());
-            imgUrl = enity.getImgResUrl();
-            editor.render(enity.getContent());
-            editor.setFocusableInTouchMode(false);
-        }
-        editor.setBackgroundResource(R.drawable.question_bg);
-    }
-
-    private void initNoteIconClick() {
-        note_icon = findViewById(R.id.note_icon);
-        note_icon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                PictureSelector.create(EditingActivity.this)
-                        .openGallery(PictureMimeType.ofAll())
-                        .imageEngine(GlideEngine.createGlideEngine())
-                        .forResult(new OnResultCallbackListener<LocalMedia>() {
-                            @Override
-                            public void onResult(List<LocalMedia> result) {
-                                imgUrl = result.get(0).getRealPath();
-                                Glide.with(EditingActivity.this).load(imgUrl).into(note_icon);
-                            }
-
-                            @Override
-                            public void onCancel() {
-                                // onCancel Callback
-                            }
-                        });
-            }
-        });
-
-
-    }
     /*完成选择照片回调*/
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        Log.e("Result", ""+data+","+resultCode);
+
         if (requestCode == editor.PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK && data != null && data.getData() != null) {
             Uri uri = data.getData();
             try {
+                imgUrl1 = getRealPathFromURI(uri);
                 Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
                 // Log.d(TAG, String.valueOf(bitmap));
                 editor.insertImage(bitmap);
+                Log.e("图片Result", ""+imgUrl1);
             } catch (IOException e) {
                 Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
                 e.printStackTrace();
             }
         }
+    }
+
+    /*获取图片真实路径*/
+    private String getRealPathFromURI(Uri contentURI) {
+        String filePath = null;
+        String[] projection = {MediaStore.Images.Media.DATA};
+        //这个有两个包不知道是哪个。。。。不过这个复杂版一般用不到
+        CursorLoader loader = new CursorLoader(this, contentURI, projection, null, null, null);
+        Cursor cursor = loader.loadInBackground();
+
+        if (cursor != null) {
+            cursor.moveToFirst();
+            filePath = cursor.getString(cursor.getColumnIndex(projection[0]));
+            cursor.close();
+        }
+        return filePath;
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -324,8 +345,9 @@ public class EditingActivity extends AppCompatActivity {
     }
 
     private void saveNote() {
-        String content = title.getText().toString();
+        String content = editor.getContentAsHTML();
         Log.e("点前id",""+ID);
+        Log.e("保存前的内容：",""+editor.getContentAsHTML(editor.getContent()));
         if (ID == -1L && content.trim().length()>0) {
             String title_temp = title.getText().toString();
             enity = new NoteEnity(System.currentTimeMillis(),title_temp,editor.getContentAsHTML(),new Date(),"book",imgUrl==null? "url is none":imgUrl);

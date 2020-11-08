@@ -219,6 +219,7 @@ public class NoteActivity extends AppCompatActivity {
     @Override
     protected void onRestart() {
         super.onRestart();
+        itemAdapter.refreshList(controllor.searchAll());
         Long id  = NoteEnityControllor.tempId;
         if(NoteEnityControllor.tempId!=-1) {
             itemAdapter.addItem(controllor, id);
