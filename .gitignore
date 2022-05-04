@@ -2,5 +2,6 @@ bin/
 gen/
 obj/
 libs/*/*.so
-build/
+app/build/
 .idea/
+.gradle/

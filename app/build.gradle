@@ -58,7 +58,7 @@ dependencies {
     implementation 'androidx.preference:preference:1.1.1'
     implementation 'com.github.irshulx:laser-native-editor:3.0.3'
     implementation 'com.github.duanhong169:colorpicker:1.1.1'
-    implementation 'me.wangyuwei:FlipShare:1.0.2'
+    //implementation 'me.wangyuwei:FlipShare:1.0.2'
     implementation  'com.scwang.smart:refresh-layout-kernel:2.0.1'      //核心必须依赖
     implementation  'com.scwang.smart:refresh-header-classics:2.0.1'    //经典刷新头
 
